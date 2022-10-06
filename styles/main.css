@@ -54,10 +54,17 @@ body, html{
     border:white solid 1px;
     padding-left: 20px;
     font-size:20px;
+    border:skyblue solid 1px;
+    opacity: 0.4;
 }
 .main__user__users__userBox input:focus{
     transition: ease-in-out 0.3s;
     border:skyblue solid 1px;
+    opacity: 1;
+}
+.main__user__users__userBox input::placeholder{
+    color:rgb(5, 5, 5);
+    opacity:1;
 }
 .main__user__users__userBox input:focus::placeholder{
     opacity: 0;
