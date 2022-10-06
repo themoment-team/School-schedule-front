@@ -9,9 +9,7 @@ function onGeoOK(position) {
     .then((response) => response.json())
     .then((data) => {
       const selectedId = `#${data.weather[0].main}`;
-      console.log(selectedId);
       const weatherIcon = document.querySelector(selectedId);
-      console.log(weatherIcon);
       weatherIcon.classList.remove("hidden__icon");
     });
 }

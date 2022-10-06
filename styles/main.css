@@ -131,16 +131,16 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #87cefa;
   font-size: 30px;
 }
-#cloud {
+#Clouds {
   top: 80px;
 }
-#wind {
+#Wind {
   bottom: 23px;
 }
-#rain {
+#Rain {
   bottom: 120px;
 }
-#snow {
+#Snow {
   bottom: 220px;
 }
 .hidden__icon {
