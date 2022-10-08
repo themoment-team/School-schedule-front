@@ -7,17 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiginUp</title>
     <link rel="stylesheet" href="../styles/SiginUp2.css">
+    <script src="../scripts/login.js"></script>
 </head>
 
 <body>
     <div class="main">
-        <h1 class="main__signUp__header">로그인</h1>
+        <h1 class="main__signUp__header"> <a href="./main.html">
+                <img class="Logo" src="../images/schemaLogo.png">
+            </a></h1>
         <div class="main__signUp">
             <div class="main__signUp_inputs">
                 <input type="text" class="main__signUp__inputs__input" placeholder="id">
-                <input type="text" class="main__signUp__inputs__input" placeholder="password">
+                <input type="password" class="main__signUp__inputs__input" placeholder="password">
                 <input type="text" class="main__signUp__inputs__input" placeholder="name">
             </div>
+            <button type="submit">로그인</button>
+            <div class="if">schema 계정이 없나요?<a href="../pages/SignIn.html">&nbsp;&nbsp;가입</a></div>
         </div>
     </div>
 </body>
