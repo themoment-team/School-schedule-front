@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main</title>
-    <script 
-    src="https://kit.fontawesome.com/0d3908869d.js" 
-    crossorigin="anonymous"
-></script>
-<link rel="stylesheet" href="../styles/main.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
-<script src="../scripts/move.js" defer> </script>
-</head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main</title>
+  <script src="https://kit.fontawesome.com/0d3908869d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+  <script src="../scripts/move.js" defer> </script>
+
 <body>
-    <div class="main">
-        <div class="main__user">
-            <div class="main__user__users">
-                <div class="main__user__users__BTN">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </div>
-                <div class="main__user__users__userBox">
-                    <i class="fa-solid fa-user"></i>
-                    <input class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
-                    <input class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
-                    <input class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
-                    <input class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
-                    <button>Modify</button>
-                </div>
-            </div>
+  <div class="main">
+    <div class="main__user">
+      <div class="main__user__users">
+        <div class="main__user__users__BTN">
+          <i class="fa-solid fa-chevron-left"></i>
         </div>
+        <div class="main__user__users__userBox">
+          <i class="fa-solid fa-user"></i>
+          <input class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
+          <input class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
+          <input class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
+          <input class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
+          <button>Modify</button>
+        </div>
+      </div>
+    </div>
+    <div class="main__mid">
+      <div class="main__mid__weather">
+
+      </div>
+      <div class="main__mid__schedule">
+
+      </div>
+    </div>
+  </div>
         <div class="main__mid">
           <div class="main__mid__weather">
             <div class="main__user"></div>
@@ -47,23 +54,22 @@
                   <div id="Rain" class="weather__icon hidden__icon">
                     <i class="fa-solid fa-umbrella"></i>
                     <p>오늘은 비</p>
-                  </div>
-                  <div id="Snow" class="weather__icon hidden__icon">
-                    <i class="fa-solid fa-snowflake"></i>
-                    <p>오늘은 눈</p>
-                  </div>
-                </div>
-              </div>
-              <a href="./main.html">
-                <img class="Logo" src='https://cdn.discordapp.com/attachments/987235249207521310/1028287814678347776/unknown.png'>
-              </a>
-              </div>
-              <div class="main__schedule"></div>
             </div>
-            <div class="main__mid__schedule">
-    
+            <div id="Snow" class="weather__icon hidden__icon">
+              <i class="fa-solid fa-snowflake"></i>
+              <p>오늘은 눈</p>
             </div>
+          </div>
         </div>
-      </body>
-    <script src="../scripts/weather.js"></script>
+        <a href="./main.html">
+          <img class="Logo" src='https://ifh.cc/g/nnLkbO.png%27%3E'>
+        </a>
+      </div>
+      <div class="main__schedule"></div>
+    </div>
+    <div class="main__mid__schedule">
+    </div>
+  </div>
+</body>
+<script src="../scripts/weather.js"></script>
 </html>

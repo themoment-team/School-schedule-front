@@ -30,7 +30,6 @@ html {
 	background-color: white;
 }
 .mainsignUp {
-	margin-top: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -51,10 +50,7 @@ html {
 	width: 300px;
 	background-color: #87cefa;
 	border: 0;
-	border-radius: 10px;
-	height: 30px;
 	margin: 20px 0px;
-	height: 50px;
 	outline: none;
 	transition: ease-in-out 2s;
 	padding-left: 20px;
@@ -68,7 +64,6 @@ html {
 	height: 100%;
 }
 .main__signUp {
-	margin-top: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -77,10 +72,10 @@ html {
 }
 
 .main__signUp__header {
-	font-size: 50px;
-	font-family: "MICEGothic Bold";
-	font-weight: 200;
-	color: #87cefa;
+}
+.Logo {
+	width: 200px;
+	position: relative;
 }
 .main__signUp__inputs__input:focus {
 	border: 1px solid rgb(30, 173, 230);
@@ -91,11 +86,12 @@ html {
 	width: 300px;
 	background-color: #87cefa;
 	border: 0;
-	border-radius: 15px;
+	border-radius: 5px;
 	height: 30px;
 	margin: 20px 0px;
 	height: 50px;
 	outline: none;
+	font-size: 17px;
 }
 input:focus::-webkit-input-placeholder,
 textarea:focus::-webkit-input-placeholder {
@@ -108,4 +104,34 @@ input::placeholder {
 	font-size: 15px;
 	color: gray;
 	font-weight: lighter;
+}
+
+button {
+	font-family: "MICEGothic Bold";
+	width: inherit;
+	height: 40px;
+	border-radius: 10px;
+	border: none;
+	transition: background 0.2s;
+	border: 1px solid #3baff7;
+	color: gray;
+}
+
+/* button:hover {
+	background-color: #3baff7;
+	color: black;
+} */
+.active {
+	background-color: #3baff7;
+}
+.if {
+	margin-top: 50px;
+	width: 500px;
+	display: flex;
+	justify-content: center;
+	font-family: "MICEGothic Bold";
+}
+
+a {
+	text-decoration: none;
 }
