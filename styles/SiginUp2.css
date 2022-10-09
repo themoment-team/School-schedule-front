@@ -112,17 +112,18 @@ button {
 	height: 40px;
 	border-radius: 10px;
 	border: none;
-	background-color: #87cefa;
 	transition: background 0.2s;
 	border: 1px solid #3baff7;
 	color: gray;
 }
 
-button:hover {
+/* button:hover {
 	background-color: #3baff7;
 	color: black;
+} */
+.active {
+	background-color: #3baff7;
 }
-
 .if {
 	margin-top: 50px;
 	width: 500px;

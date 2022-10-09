@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiginUp</title>
     <link rel="stylesheet" href="../styles/SiginUp2.css">
-    <script src="../scripts/login.js"></script>
 </head>
 
 <body>
@@ -17,14 +16,17 @@
             </a></h1>
         <div class="main__signUp">
             <div class="main__signUp_inputs">
-                <input type="text" class="main__signUp__inputs__input" placeholder="id">
-                <input type="password" class="main__signUp__inputs__input" placeholder="password">
-                <input type="text" class="main__signUp__inputs__input" placeholder="name">
+                <form action="../pages/main.html" id="loginForm" method="get">
+                    <input type="text" class="main__signUp__inputs__input id" placeholder="id" maxlength="10">
+                    <input type="password" class="main__signUp__inputs__input pw" placeholder="password" maxlength="10">
+                    <input type="text" class="main__signUp__inputs__input name" placeholder="name">
+                </form>
             </div>
-            <button type="submit">로그인</button>
+            <button type="submit" form="loginForm" disabled>로그인</button>
             <div class="if">schema 계정이 없나요?<a href="../pages/SignIn.html">&nbsp;&nbsp;가입</a></div>
         </div>
     </div>
+    <script src="../scripts/login.js"></script>
 </body>
 
 </html>
