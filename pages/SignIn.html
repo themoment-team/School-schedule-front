@@ -1,20 +1,33 @@
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SignIn</title>
-    <script
-      src="https://kit.fontawesome.com/0d3908869d.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="../styles/style.css" />
-  </head>
+<html lang="en">
 
-  <body>
-    <div class="main">
-      <div class="main__signIn"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiginUp</title>
+  <link rel="stylesheet" href="../styles/SiginUp2.css">
+</head>
+
+<body>
+  <div class="main">
+    <h1 class="main__signUp__header"> <a href="./main.html">
+        <img class="Logo" src="../images/schemaLogo.png">
+      </a></h1>
+    <div class="main__signUp">
+      <div class="main__signUp_inputs">
+        <form action="../pages/main.html" id="loginForm" method="get">
+          <input type="text" class="main__signUp__inputs__input id" placeholder="id" maxlength="10">
+          <input type="password" class="main__signUp__inputs__input pw" placeholder="password" maxlength="10">
+          <input type="text" class="main__signUp__inputs__input name" placeholder="name">
+          <input type="text" class="main__signUp__inputs__input name school" placeholder="schoolname">
+        </form>
+      </div>
+      <button type="submit" form="loginForm" disabled>회원가입</button>
+      <div class="if">비밀 번호를 잊어버리셨나요?<a href="../pages/SignIn.html">&nbsp;&nbsp;비밀번호 찾기</a></div>
     </div>
-  </body>
+  </div>
+  <script src="../scripts/login.js"></script>
+</body>
+
 </html>
