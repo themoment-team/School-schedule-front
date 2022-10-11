@@ -48,7 +48,6 @@ html {
 
 .mainsignUpinputsinput {
 	width: 300px;
-	background-color: #87cefa;
 	border: 0;
 	margin: 20px 0px;
 	outline: none;
@@ -77,15 +76,12 @@ html {
 	width: 200px;
 	position: relative;
 }
-.main__signUp__inputs__input:focus {
-	border: 1px solid rgb(30, 173, 230);
-}
 
 .main__signUp__inputs__input {
 	padding-left: 20px;
 	width: 300px;
-	background-color: #87cefa;
-	border: 0;
+
+	border: 1px solid #87cefa;
 	border-radius: 5px;
 	height: 30px;
 	margin: 20px 0px;
@@ -115,6 +111,7 @@ button {
 	transition: background 0.2s;
 	border: 1px solid #3baff7;
 	color: gray;
+	cursor: pointer;
 }
 
 /* button:hover {
@@ -134,4 +131,8 @@ button {
 
 a {
 	text-decoration: none;
+}
+
+input:focus {
+	background-color: #c5e9ff;
 }
