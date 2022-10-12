@@ -11,6 +11,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
   <script src="../scripts/move.js" defer> </script>
   <script src="../scripts/img.js" defer></script>
+  <script src="../scripts/modify.js" defer></script>
 <body>
   <div class="main">
     <div class="main__user">
@@ -20,16 +21,35 @@
         </div>
         <div class="main__user__users__userBox">
           <div class="main__user__users__userBox__userIMG">
-            <input class="main__user__users__userBox__userIMG__input" type="file">
+            <label id="wantNone" for="file">
+              <div class="btn-upload">파일 업로드</div>
+            </label>
+            <input name="file" id="file" class="main__user__users__userBox__userIMG__input" type="file">
             <img class="userIMGfile display" src="">
           </div>
-          <input class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
-          <input class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
-          <input class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
-          <input class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
-          <button>Modify</button>
+          <input id="in1" class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
+          <input id="in2" class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
+          <input id="in3" class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
+          <input id="in4" class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
+          <button id="goModify">수정</button>
         </div>
       </div>
+    </div>
+    <div class="main__modify main__user__users__userBox">
+      <div class="main__user__users__userBox__userIMG">
+        <label id="wantNone" for="file">
+          <div class="btn-upload">파일 업로드</div>
+        </label>
+        <input name="file" id="file" class="main__user__users__userBox__userIMG__input" type="file">
+        <img class="userIMGfile display" src="">
+      </div>
+          <input id="inputN1" class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
+          <input id="inputN2" class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
+          <input id="inputN3" class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
+          <input id="inputN4" class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
+          <button id="modifyBTN">Modify</button>
+          <p id="redP"></p>
+          <i id="xMark" class="fa-solid fa-xmark"></i>
     </div>
     <div class="main__mid">
       <div class="main__mid__weather">
