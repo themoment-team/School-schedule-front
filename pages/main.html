@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../styles/main.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
   <script src="../scripts/move.js" defer> </script>
+  <script src="../scripts/img.js" defer></script>
 
 <body>
   <div class="main">
@@ -19,7 +20,10 @@
           <i class="fa-solid fa-chevron-left fa-xs"></i>
         </div>
         <div class="main__user__users__userBox">
-          <i class="fa-solid fa-user"></i>
+          <div class="main__user__users__userBox__userIMG">
+            <input class="main__user__users__userBox__userIMG__input" type="file">
+            <img class="userIMGfile display" src="">
+          </div>
           <input class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
           <input class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
           <input class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
@@ -43,6 +47,10 @@
       <div class="main__weather">
         <div id="weather">
           <div id="bla">
+            <div id="Clear" class="weather__icon hidden__icon">
+              <i class="fa-solid fa-sun"></i>
+              <p>오늘은 맑음</p>
+            </div>
             <div id="Clouds" class="weather__icon hidden__icon">
               <i class="fa-solid fa-cloud"></i>
               <p>오늘은 구름</p>
