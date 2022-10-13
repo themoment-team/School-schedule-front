@@ -70,8 +70,6 @@ html {
 	flex-direction: column;
 }
 
-.main__signUp__header {
-}
 .Logo {
 	width: 200px;
 	position: relative;
@@ -118,9 +116,6 @@ button {
 	background-color: #3baff7;
 	color: black;
 } */
-.active {
-	background-color: #3baff7;
-}
 .if {
 	margin-top: 50px;
 	width: 500px;
