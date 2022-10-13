@@ -6,5 +6,6 @@ function onChange(event){
     document.querySelector(".userIMGfile").src = file;
     setIMG.classList.remove("display");
     const element = document.querySelector(".main__user__users__userBox__userIMG__input").style.display="none";
+    const wantNone = document.querySelector("#wantNone").style.display="none";
 }
 imgInput.addEventListener("change", onChange);

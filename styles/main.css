@@ -208,9 +208,44 @@ input[type="number"]::-webkit-inner-spin-button {
 	height: 10vw;
 	border-radius: 10vh;
 }
-.display {
-	display: none;
-}
 .main__user__users__userBox__userIMG__input {
 	cursor: pointer;
+}
+.btn-upload {
+  width: 9vw;
+  height: 9vw;
+  background:none;
+  border-radius: 5vw;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#file {
+  display: none;
+}
+
+.main__modify{
+  width: 40vw;
+  height: 45vw;
+  position:absolute;
+  background-color:white;
+  margin-left: 0;
+  top: 3vh;
+  left: -43vw;
+  box-shadow: 0px 0px 23px -15px rgb(0, 0, 0);
+  z-index:111111111111111;
+}
+#xMark{
+  font-size:4vw;
+  color:gray;
+  opacity:0.5;
+  margin-top:20px;
+  cursor: pointer;
+}
+#xMark:hover{
+  color: #87cefa;
+  transition:ease-in-out 0.3s;
 }
