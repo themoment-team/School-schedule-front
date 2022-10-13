@@ -212,7 +212,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
 #file {
   display: none;
+  
 }
+
 
 .main__modify{
   width: 40vw;
