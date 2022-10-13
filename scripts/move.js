@@ -32,7 +32,7 @@ const handleClick = () => {
 const onClick = () => {
     gsap.to(
         ".main__modify",{
-            x:1200,
+            x:900,
         }
     )
 }
