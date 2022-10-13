@@ -1,4 +1,6 @@
 const moveBTN = document.querySelector(".main__user__users__BTN");
+const goModify = document.querySelector("#goModify");
+const xMark = document.querySelector("#xMark");
 let cnt = 0;
 const handleClick = () => {
     if(cnt%2===0){
@@ -27,5 +29,21 @@ const handleClick = () => {
     }
     cnt++;
 }
+const onClick = () => {
+    gsap.to(
+        ".main__modify",{
+            x:1200,
+        }
+    )
+}
+const xClick = ()=>{
+    gsap.to(
+        ".main__modify",{
+            x:0,
+        }
+    )
+}
 
 moveBTN.addEventListener("click", handleClick);
+goModify.addEventListener("click", onClick);
+xMark.addEventListener("click", xClick);
