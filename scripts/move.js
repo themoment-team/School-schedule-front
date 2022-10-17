@@ -6,7 +6,7 @@ const handleClick = () => {
     if(cnt%2===0){
         gsap.to(
             ".main__user__users",{
-                x:-400,
+                x:-370,
             }
         )
         gsap.to(
