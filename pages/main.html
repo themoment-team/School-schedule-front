@@ -12,6 +12,7 @@
   <script src="../scripts/move.js" defer> </script>
   <script src="../scripts/img.js" defer></script>
   <script src="../scripts/modify.js" defer></script>
+  <script src="../scripts/clock.js" defer></script>
 <body>
   <div class="main">
     <div class="main__user">
@@ -22,15 +23,15 @@
         <div class="main__user__users__userBox">
           <div class="main__user__users__userBox__userIMG">
             <label id="wantNone" for="file">
-              <div class="btn-upload">파일 업로드</div>
+              <div class="btn-upload">File Upload</div>
             </label>
             <input name="file" id="file" class="main__user__users__userBox__userIMG__input" type="file">
             <img class="userIMGfile display" src="">
           </div>
-          <input id="in1" class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
-          <input id="in2" class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
-          <input id="in3" class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
-          <input id="in4" class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
+          <input disabled id="in1" class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
+          <input disabled id="in2" class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
+          <input disabled id="in3" class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
+          <input disabled id="in4" class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
           <button id="goModify">수정</button>
         </div>
       </div>
@@ -38,7 +39,7 @@
     <div class="main__modify main__user__users__userBox">
       <div class="main__user__users__userBox__userIMG">
         <label id="wantNone" for="file">
-          <div class="btn-upload">파일 업로드</div>
+          <div class="btn-upload">File Upload</div>
         </label>
         <input name="file" id="file" class="main__user__users__userBox__userIMG__input" type="file">
         <img class="userIMGfile display" src="">
@@ -62,6 +63,9 @@
   </div>
   <div class="main__mid">
     <div class="main__mid__weather">
+      <h2 id="clock">
+
+      </h2>
       <div class="main__user"></div>
       <div class="main__weather">
         <div id="weather">
