@@ -55,7 +55,7 @@ html {
 }
 .main__user__users__userBox input {
   width: 300px;
-  margin: 30px 0 30px 20px;
+  margin: 3vh 0 ;
   height: 40px;
   border-radius: 5px;
   outline: none;
@@ -210,7 +210,7 @@ input[type="number"]::-webkit-inner-spin-button {
   display: none;
 }
 .main__modify{
-  width: 30vw;
+  width: 20vw;
   height: 100vh;
   position:absolute;
   background-color:white;
