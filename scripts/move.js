@@ -32,6 +32,7 @@ const handleClick = () => {
 const onClick = () => {
     gsap.to(
         ".main__modify",{
+            opacity:1,
             x:1000,
         }
     )
@@ -39,6 +40,7 @@ const onClick = () => {
 const xClick = ()=>{
     gsap.to(
         ".main__modify",{
+            opacity:0,
             x:0,
         }
     )
