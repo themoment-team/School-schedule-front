@@ -1,5 +1,5 @@
 const userId = document.querySelector('.id');
-const userBtn = document.querySelector('button');
+const userBtn = document.querySelector('.signup');
 const userPw = document.querySelector('.pw');
 const userName = document.querySelector('.name');
 const userSchool = document.querySelector('.school');
