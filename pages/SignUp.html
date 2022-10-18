@@ -20,16 +20,22 @@
           <input type="text" class="main__signUp__inputs__input id" placeholder="id" maxlength="16">
           <input type="password" class="main__signUp__inputs__input pw" placeholder="password" maxlength="16">
           <input type="text" class="main__signUp__inputs__input name" placeholder="name">
-          <input type="text" class="main__signUp__inputs__input name school" placeholder="schoolname">
+          <div class="main__signup__inputs__container">
+            <input type="text" class="main__signUp__inputs__input school" placeholder="schoolname">
+            <button class="search" type="button">검색</button>
+          </div>
         </form>
       </div>
-      <button type="submit" form="loginForm" disabled>회원가입</button>
+      <button type="submit" form="loginForm" disabled class="signup">회원가입</button>
       <div class="if">비밀 번호를 잊어버리셨나요?<a href="#">&nbsp;&nbsp;비밀번호 찾기</a></div>
     </div>
     <div class="if">계정이 이미 있나요?<a href="../pages/SiginIn.html">&nbsp;&nbsp;로그인</a></div>
   </div>
   </div>
+  <div class="search_window">
+  </div>
   <script src="../scripts/signup.js"></script>
+  <script src="../scripts/searchSchool.js"></script>
 </body>
 
 </html>

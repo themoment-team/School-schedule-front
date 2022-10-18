@@ -100,7 +100,8 @@ input::placeholder {
 	font-weight: lighter;
 }
 
-button {
+.signup,
+.login {
 	font-family: "MICEGothic Bold";
 	width: inherit;
 	height: 40px;
@@ -130,4 +131,71 @@ a {
 
 input:focus {
 	background-color: #c5e9ff;
+}
+
+.school {
+	width: 230px;
+	height: 50px;
+	border-radius: 5px;
+	border: 1px solid #87cefa;
+}
+.school:focus {
+	background-color: #c5e9ff;
+}
+
+.search {
+	width: 64px;
+	height: 50px;
+	background-color: #c5e9ff;
+	border-radius: 5px;
+	border: 1px solid #87cefa;
+	margin-left: 5px;
+	cursor: pointer;
+}
+.main__signup__inputs__container {
+	display: flex;
+	align-items: center;
+}
+
+.search_window {
+	position: absolute;
+	background-color: white;
+	width: 500px;
+	height: 500px;
+	border: 1px solid #3baff7;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+button.search_window_school {
+	margin-bottom: 10px;
+}
+.search_window_school {
+	width: 350px;
+	height: 60px;
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #87cefa;
+	cursor: pointer;
+	font-family: "MICEGothic Bold";
+}
+
+.search_window_school:hover {
+	background-color: #c5e9ff;
+	transition: background 1ms;
+}
+
+h3.title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 50px;
+	background-color: #c5e9ff;
+	border: 1px solid #3baff7;
+	border-radius: 5px;
+	font-family: "MICEGothic Bold";
+	margin-bottom: 20px;
 }
