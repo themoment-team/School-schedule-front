@@ -252,9 +252,6 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #87cefa;
 }
 
-.main__School__schedule__look {
-}
-
 .subject {
   display: flex;
   text-align: center;
