@@ -1,9 +1,9 @@
 @font-face {
-	font-family: "MICEGothic Bold";
-	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2")
-		format("woff2");
-	font-weight: 400;
-	font-style: normal;
+  font-family: "MICEGothic Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
 body,
 html {
@@ -26,6 +26,12 @@ html {
   color: #87cefa;
   cursor: pointer;
   box-shadow: 0px 0px 23px -15px rgb(0, 0, 0);
+}
+.Logo {
+  width: 100px;
+  position: relative;
+  z-index: 5;
+  top: -400px;
 }
 .main__user__users__BTN:hover {
   background-color: #87cefa;
@@ -99,17 +105,17 @@ html {
   width: 20vh;
   height: 20vh;
   background-color: #c5e9ff;
-  border-radius:10vw;
+  border-radius: 10vw;
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size:2.1vh;
-  z-index:100000;
+  font-size: 2.1vh;
+  z-index: 100000;
   transition: ease-in-out 0.12s;
   color: gray;
 }
-.main__user__users__userBox__userIMG:hover{
+.main__user__users__userBox__userIMG:hover {
   color: white;
 }
 .main__user__users__userBox button {
@@ -155,10 +161,10 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #87cefa;
   font-size: 2vw;
 }
-#bla{
+#bla {
   position: relative;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
   text-align: center;
   flex-direction: column;
@@ -175,29 +181,29 @@ input[type="number"]::-webkit-inner-spin-button {
 #Snow {
   position: absolute;
 }
-#Clear{
+#Clear {
   position: absolute;
 }
 .hidden__icon {
-  opacity:1;
+  opacity: 1;
   opacity: 0;
 }
-.userIMGfile{
-  width:10vw;
-  height:10vw;
+.userIMGfile {
+  width: 10vw;
+  height: 10vw;
   border-radius: 10vh;
   box-shadow: 0px 0px 23px -15px rgb(0, 0, 0);
 }
-.display{
+.display {
   display: none;
 }
-.main__user__users__userBox__userIMG__input{
+.main__user__users__userBox__userIMG__input {
   cursor: pointer;
 }
 .btn-upload {
   width: 9vw;
   height: 9vw;
-  background:none;
+  background: none;
   border-radius: 5vw;
   font-weight: 500;
   cursor: pointer;
@@ -209,16 +215,19 @@ input[type="number"]::-webkit-inner-spin-button {
 #file {
   display: none;
 }
+
 .main__modify{
   width: 20vw;
   height: 100vh;
   position:absolute;
   background-color:white;
   opacity: 0;
+  }
+
   margin-left: 0;
   left: -1000px;
   box-shadow: 0px 0px 23px -15px rgb(0, 0, 0);
-  z-index:111111111111111;
+  z-index: 111111111111111;
 }
 #xMark{
   font-size:4vw;
@@ -227,9 +236,19 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top:2vh;
   cursor: pointer;
 }
-#xMark:hover{
+#xMark:hover {
   color: #87cefa;
   transition:ease-in-out 0.3s;
+}
+.subject {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: "MICEGothic Bold";
+  color: #fff;
+  font-size: 4vh;
+  margin: 14px 0;
 }
 #modifyBTN:hover, #goModify:hover{
 	outline: none;
