@@ -161,7 +161,6 @@ input:focus {
 	position: absolute;
 	background-color: white;
 	width: 500px;
-	height: 500px;
 	border: 1px solid #3baff7;
 	border-radius: 5px;
 	display: flex;
@@ -198,4 +197,15 @@ h3.title {
 	border-radius: 5px;
 	font-family: "MICEGothic Bold";
 	margin-bottom: 20px;
+}
+
+.exit {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	cursor: pointer;
+	top: 40px;
+	left: 30px;
 }

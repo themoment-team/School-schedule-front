@@ -1,7 +1,12 @@
 const schoolSearch = document.querySelector(".search");
 const searchBtn = document.querySelector(".search_window");
 const school = document.querySelector(".school");
-const clickedSchoolName = "";
+const signupBtn = document.querySelector(".signup");
+const exit = document.querySelector(".exit");
+const userId = document.querySelector('.id');
+const userPw = document.querySelector('.pw');
+const userName = document.querySelector('.name');
+const check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
 let schoolInfo;
 
 
@@ -30,9 +35,11 @@ function schoolData() {
                 List.setAttribute('class', 'search_window_school');
                 List.setAttribute('id', i);
                 List.setAttribute('onClick', 'selectSchool(this.id)');
-                List.innerText = a[i].SCHUL_NM + " - " + a[i].ORG_RDNMA;
+                List.innerText = a[i].SCHUL_NM + "\n" + a[i].ORG_RDNMA;
                 // List.innerText = a[i].SCHUL_NM;
                 searchBtn.appendChild(List);
+                let height = i * 70 + 300;
+                searchBtn.style.height = height + 'px';
             }
             searchBtn.style.flexDirection = "column";
             searchBtn.style.display = "flex";
@@ -52,8 +59,51 @@ function schoolData() {
 }
 function selectSchool(clicked_id) {
     const d = document.getElementById(clicked_id).innerText;
-    const w = d.split(' ', 1);
+    const w = d.split('\n', 1);
     school.placeholder = w;
     searchBtn.style.display = "none";
 }
+function goBack() {
+    searchBtn.style.flexDirection = "column";
+    searchBtn.style.display = "none";
+    school.value = null;
+    schoolSearch.disabled = false;
+    schoolSearch.style.cursor = 'pointer';
+    school.disabled = false;
+    schoolName = null;
+    removeAllchild(searchBtn);
+}
+function removeAllchild(div) {
+    while (div.hasChildNodes()) {
+        div.removeChild(div.firstChild);
+    }
+    searchBtn.appendChild(exit);
+}
+
+function checkSubmit() {
+    if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0) {
+        const result = checkPassword(); // 통과하면 true, 틀리면 false
+        if (result == true) {//버튼 활성화
+            signupBtn.disabled = false;
+            signupBtn.style.background = '#c5e9ff';
+            signupBtn.style.color = 'black';
+        } else {
+            return;
+        }
+    } else {
+        alert("입력칸을 다 채워주세요!");
+    }
+}
+function checkPassword() {
+    if (!check.test(userPw.value)) {
+        alert("비밀번호는 문자, 숫자, 특수문자의 조합으로 입력해주세요");
+        return false;
+    }
+    if (userPw.length < 8 || userPw.length > 16) {
+        alert("비밀번호는 8 ~ 16 자리로 입력해주세요.");
+        return false;
+    }
+    return true;
+}
 schoolSearch.addEventListener('click', schoolData);
+signupBtn.addEventListener('click', checkSubmit);
