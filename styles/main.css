@@ -359,5 +359,7 @@ nav{
   border: 1px solid #1fa7fc;
 }
 body{
-  background-image: url(http://www.yonexmall.com/upload/banner/2022/166079533462fdb9c6b2064.jpg);
+  background-image: url(	http://www.yonexmall.com/upload/banner/2022/166079533462fdb9c6b2064.jpg
+  );
+  background-size: cover;
 }
