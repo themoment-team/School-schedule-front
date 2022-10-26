@@ -6,7 +6,7 @@ const handleClick = () => {
     if(cnt%2===0){
         gsap.to(
             ".main__user__users",{
-                x:-400,
+                x:-370,
             }
         )
         gsap.to(
@@ -32,13 +32,15 @@ const handleClick = () => {
 const onClick = () => {
     gsap.to(
         ".main__modify",{
-            x:1200,
+            opacity:1,
+            x:1000,
         }
     )
 }
 const xClick = ()=>{
     gsap.to(
         ".main__modify",{
+            opacity:0,
             x:0,
         }
     )
