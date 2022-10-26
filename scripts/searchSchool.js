@@ -36,15 +36,12 @@ function schoolData() {
                 List.setAttribute('id', i);
                 List.setAttribute('onClick', 'selectSchool(this.id)');
                 List.innerText = a[i].SCHUL_NM + "\n" + a[i].ORG_RDNMA;
-                // List.innerText = a[i].SCHUL_NM;
                 searchBtn.appendChild(List);
                 let height = i * 70 + 300;
                 searchBtn.style.height = height + 'px';
             }
             searchBtn.style.flexDirection = "column";
             searchBtn.style.display = "flex";
-            // clickedSchoolName = a[clicked_id].SCHUL_NM;
-            // console.log(clickedSchoolName);
             school.value = null;
             schoolSearch.disabled = true;
             schoolSearch.style.cursor = 'default';
@@ -62,6 +59,10 @@ function selectSchool(clicked_id) {
     const w = d.split('\n', 1);
     school.placeholder = w;
     searchBtn.style.display = "none";
+    if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0) {
+        signupBtn.style.background = '#c5e9ff';
+        signupBtn.style.color = 'black';
+    }
 }
 function goBack() {
     searchBtn.style.flexDirection = "column";
@@ -79,19 +80,19 @@ function removeAllchild(div) {
     }
     searchBtn.appendChild(exit);
 }
-
-function checkSubmit() {
+function Clicked() {
+    const result = checkPassword();
+    console.log("실행");
     if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0) {
-        const result = checkPassword(); // 통과하면 true, 틀리면 false
-        if (result == true) {//버튼 활성화
-            signupBtn.disabled = false;
-            signupBtn.style.background = '#c5e9ff';
-            signupBtn.style.color = 'black';
-        } else {
-            return;
+        if (result == true) {
+            setTimeout(() => signupBtn.disabled = false, 3000);
+        }//비밀번호가 정규식에 맞을때
+        else {
+            signupBtn.disabled = true;
         }
     } else {
-        alert("입력칸을 다 채워주세요!");
+        signupBtn.disabled = true;
+        alert("입력되지 않은 칸이 있습니다");
     }
 }
 function checkPassword() {
@@ -101,9 +102,10 @@ function checkPassword() {
     }
     if (userPw.length < 8 || userPw.length > 16) {
         alert("비밀번호는 8 ~ 16 자리로 입력해주세요.");
+        userPw.value = null;
         return false;
     }
     return true;
 }
 schoolSearch.addEventListener('click', schoolData);
-signupBtn.addEventListener('click', checkSubmit);
+signupBtn.addEventListener('click', Clicked);
