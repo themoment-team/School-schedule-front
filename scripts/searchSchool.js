@@ -6,6 +6,10 @@ const exit = document.querySelector(".exit");
 const userId = document.querySelector('.id');
 const userPw = document.querySelector('.pw');
 const userName = document.querySelector('.name');
+const userGrade = document.querySelector(".gr");
+const userClass = document.querySelector(".cl");
+
+
 const check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
 let schoolInfo;
 
@@ -82,13 +86,14 @@ function removeAllchild(div) {
 }
 function Clicked() {
     console.log("실행");
-    if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0) {
+    if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
         const result = checkPassword();
         if (result == true) {
             setTimeout(() => signupBtn.disabled = false, 3000);
         }//비밀번호가 정규식에 맞을때
         else {
             userPw.value = "";
+            sessionStorage.setItem("isLogin", true);
             signupBtn.disabled = true;
         }
     } else {
