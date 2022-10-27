@@ -31,7 +31,7 @@ function onClick() {
         }else{
             userBtn.style.backgroundColor = '#c5e9ff';
             userBtn.style.color = 'black';
-
+            sessionStorage.setItem("isLogin", true);
         }
     } else {
         userBtn.disabled = true;

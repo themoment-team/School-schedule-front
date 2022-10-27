@@ -13,6 +13,7 @@
   <script src="../scripts/img.js" defer></script>
   <script src="../scripts/modify.js" defer></script>
   <script src="../scripts/clock.js" defer></script>
+  <script src="../scripts/isLoginInMain.js" defer></script>
 <body>
   <nav>
     <a id="LOGO" href="./main.html">
@@ -107,5 +108,8 @@
   </div>
 </body>
 <script src="../scripts/weather.js"></script>
-
+<script>
+  window.addEventListener('online', ()=>{ alert("온라인입니다") });
+  window.addEventListener('offline', ()=>{ alert("오프라인 입니다") });
+</script>
 </html>
