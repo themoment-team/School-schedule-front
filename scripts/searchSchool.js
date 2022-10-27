@@ -81,31 +81,36 @@ function removeAllchild(div) {
     searchBtn.appendChild(exit);
 }
 function Clicked() {
-    const result = checkPassword();
     console.log("실행");
     if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0) {
+        const result = checkPassword();
         if (result == true) {
             setTimeout(() => signupBtn.disabled = false, 3000);
         }//비밀번호가 정규식에 맞을때
         else {
+            userPw.value = "";
             signupBtn.disabled = true;
         }
     } else {
         signupBtn.disabled = true;
         alert("입력되지 않은 칸이 있습니다");
+        location.reload();
     }
 }
 function checkPassword() {
     if (!check.test(userPw.value)) {
         alert("비밀번호는 문자, 숫자, 특수문자의 조합으로 입력해주세요");
+        location.reload();
         return false;
     }
     if (userPw.length < 8 || userPw.length > 16) {
         alert("비밀번호는 8 ~ 16 자리로 입력해주세요.");
-        userPw.value = null;
+        location.reload();
         return false;
     }
     return true;
 }
 schoolSearch.addEventListener('click', schoolData);
 signupBtn.addEventListener('click', Clicked);
+schoolSearch.addEventListener('keyup', schoolData);
+signupBtn.addEventListener('keyup', Clicked);
