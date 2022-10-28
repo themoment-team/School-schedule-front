@@ -22,9 +22,13 @@ const handleClicl = () => {
       for (let i = 0; i < 7; i++) {
         const inner = document.getElementById(`${i}`);
         try {
-          inner.innerText = `${i + 1}교시 ${
-            json.hisTimetable[1].row[i].ITRT_CNTNT
-          }`;
+          if (json.hisTimetable[1].row[i].ITRT_CNTNT.length >= 9) {
+            inner.innerText = `${i + 1}교시 ${json.hisTimetable[1].row[i].ITRT_CNTNT
+              }`;
+          } else {
+            inner.innerText = `${i + 1}교시 ${json.hisTimetable[1].row[i].ITRT_CNTNT
+              }`;
+          }
         } catch {
           inner.innerText = `${i + 1}교시 데이터값 없음`;
         }
