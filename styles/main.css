@@ -277,13 +277,6 @@ input[type="number"]::-webkit-inner-spin-button {
 	justify-content: center;
 	flex-direction: column;
 }
-.YMD{
-	position: relative;
-	top: 8vh;
-	font-size: 3vh;
-	font-family: "MICEGothic Bold";
-	color: #87cefa;
-}
 .LOGO {
 	width: 6vh;
 	display: flex;

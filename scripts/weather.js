@@ -1,5 +1,5 @@
-const weather = document.querySelector("#dlwjddn");
-const city = document.querySelector("#dltmdwp");
+// const weather = document.querySelector("#dlwjddn");
+// const city = document.querySelector("#dltmdwp");
 function onGeoOK(position) {
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;

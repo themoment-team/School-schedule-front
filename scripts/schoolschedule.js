@@ -5,15 +5,15 @@ let date = today.getDate(); // 날짜
 let YMD = `${year}${month}${date}`;
 const size = 2;
 // 20221023
-const YMDD = document.getElementById("YMD");
+// const YMDD = document.getElementById("YMD");
 const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
+const subject__title= document.querySelector(".subject__title");
 const handleClicl = (e) => {
   date = `${date}`;
   date = date.padStart(2, "0");
   YMD = `${year}${month}${date}`;
-  YMDD.innerText = YMD;
-  YMDD.innerText = YMD;
+  subject__title.innerText = YMD;
   //console.log(YMD);
   fetch(
     `https://open.neis.go.kr/hub/hisTimetable?KEY=a810dd9ec8c04e57b5ecc4d4ff4e400e&Type=json&pIndex=1&pSize=10&ATPT_OFCDC_SC_CODE=F10&SD_SCHUL_CODE=7380292&AY=2022&SEM=2&ALL_TI_YMD=${YMD}&GRADE=1&CLASS_NM=4`
