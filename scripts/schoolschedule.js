@@ -13,6 +13,7 @@ const handleClicl = (e) => {
   date = date.padStart(2, "0");
   YMD = `${year}${month}${date}`;
   YMDD.innerText = YMD;
+  YMDD.innerText = YMD;
   //console.log(YMD);
   fetch(
     `https://open.neis.go.kr/hub/hisTimetable?KEY=a810dd9ec8c04e57b5ecc4d4ff4e400e&Type=json&pIndex=1&pSize=10&ATPT_OFCDC_SC_CODE=F10&SD_SCHUL_CODE=7380292&AY=2022&SEM=2&ALL_TI_YMD=${YMD}&GRADE=1&CLASS_NM=4`

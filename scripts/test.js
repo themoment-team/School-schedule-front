@@ -48,7 +48,7 @@ function asyncTest() {
     };
     jsonArray.push(jsonObj);
 
-    let url = '/put-test';
+    let url = 'http://3.39.150.178/';
     fetch(url, {
         method: 'put',
         headers: {
