@@ -94,6 +94,7 @@ function Clicked() {
         else {
             userPw.value = "";
             sessionStorage.setItem("isLogin", true);
+            onSubmitButton();
             signupBtn.disabled = true;
         }
     } else {
@@ -119,3 +120,75 @@ schoolSearch.addEventListener('click', schoolData);
 signupBtn.addEventListener('click', Clicked);
 schoolSearch.addEventListener('keyup', schoolData);
 signupBtn.addEventListener('keyup', Clicked);
+
+
+
+
+const signupBTN = document.querySelector(".signup");
+
+
+let userID = document.querySelector(".id");
+let userPW = document.querySelector(".pw");
+let userGR = document.querySelector(".gr");
+let userCL = document.querySelector(".cl");
+let userNM = document.querySelector(".name");
+let userCH = document.querySelector(".school");
+
+function apiPut(uid, upw, ugr, ucl, unm, uch) {
+    let jsonObj = new Object();
+    let jsonArray = new Array();
+
+    uid = `${uid}`;
+    upw = `${upw}`;
+    ugr = `${ugr}`;
+    ucl = `${ucl}`;
+    unm = `${unm}`;
+    uch = `${uch}`;
+    const puts = [uid, upw, ugr, ucl, unm, uch];
+
+    for (let i = 0; i < puts.length; i++) {
+        jsonObj.puts = puts[i];
+        jsonArray.push(jsonObj);
+        jsonObj = {};
+    }
+    jsonObj.commons = {
+        id: uid,
+        pw: upw,
+        grade: ugr,
+        class: uch,
+        name: unm,
+        school: uch,
+    };
+    jsonArray.push(jsonObj);
+    console.log(jsonArray);
+    console.log(jsonObj);
+    let url = 'http://3.39.150.178/signupInfo';
+    fetch(url, {
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jsonArray),
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .then((json) => {
+            console.log(json);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
+
+const onSubmitButton = () => {
+    userID = userID.value;
+    userPW = userPW.value;
+    userGR = userGR.value;
+    userCL = userCL.value;
+    userNM = userNM.value;
+    userCH = userCH.value;
+    apiPut(userID, userPW, userGR, userCL, userNM, userCH);
+}
+
+signupBTN.addEventListener("click", onSubmitButton);

@@ -9,12 +9,11 @@ const size = 2;
 const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
 const subject__title= document.querySelector(".subject__title");
-const handleClicl = (e) => {
+const handleClicl = () => {
   date = `${date}`;
   date = date.padStart(2, "0");
   YMD = `${year}${month}${date}`;
   subject__title.innerText = YMD;
-  //console.log(YMD);
   fetch(
     `https://open.neis.go.kr/hub/hisTimetable?KEY=a810dd9ec8c04e57b5ecc4d4ff4e400e&Type=json&pIndex=1&pSize=10&ATPT_OFCDC_SC_CODE=F10&SD_SCHUL_CODE=7380292&AY=2022&SEM=2&ALL_TI_YMD=${YMD}&GRADE=1&CLASS_NM=4`
   )
@@ -52,15 +51,15 @@ function YMDPlus() {
       date = 1;
       //console.log(month);
       //console.log(YMD);
-      handleClicl(1);
+      handleClicl();
       return;
     } else {
       date++;
       //console.log(YMD);
-      handleClicl(5);
+      handleClicl();
     }
   } else if (month == 2) {
-    handleClicl(2);
+    handleClicl();
     date++;
     if (date == 28) {
       month++;
@@ -74,7 +73,7 @@ function YMDPlus() {
       month++;
       //console.log(month);
       date = 1;
-      handleClicl(4);
+      handleClicl();
       return;
     }
   }
