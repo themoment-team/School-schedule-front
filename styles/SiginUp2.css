@@ -43,9 +43,6 @@ html {
 	color: #87cefa;
 }
 
-.mainsignUp_inputs {
-}
-
 .mainsignUpinputsinput {
 	width: 300px;
 	border: 0;
@@ -104,6 +101,7 @@ input::placeholder {
 .login {
 	font-family: "MICEGothic Bold";
 	width: inherit;
+	width: 5vw;
 	height: 40px;
 	border-radius: 10px;
 	border: none;
@@ -111,8 +109,12 @@ input::placeholder {
 	border: 1px solid #3baff7;
 	color: gray;
 	cursor: pointer;
+	margin-top: 20px;
 }
-
+.signup {
+	display:flex;
+	background-color: white;
+}
 /* button:hover {
 	background-color: #3baff7;
 	color: black;
@@ -124,7 +126,12 @@ input::placeholder {
 	justify-content: center;
 	font-family: "MICEGothic Bold";
 }
-
+.a{
+	display:flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items: center;
+}
 a {
 	text-decoration: none;
 }
@@ -161,13 +168,17 @@ input:focus {
 	position: absolute;
 	background-color: white;
 	width: 500px;
-	height: 500px;
 	border: 1px solid #3baff7;
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	display: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 button.search_window_school {
 	margin-bottom: 10px;
@@ -198,4 +209,15 @@ h3.title {
 	border-radius: 5px;
 	font-family: "MICEGothic Bold";
 	margin-bottom: 20px;
+}
+
+.exit {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	cursor: pointer;
+	top: 40px;
+	left: 30px;
 }
