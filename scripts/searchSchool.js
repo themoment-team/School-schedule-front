@@ -58,9 +58,11 @@ function schoolData() {
     });
 
 }
+let UserSchoolName
 function selectSchool(clicked_id) {
     const d = document.getElementById(clicked_id).innerText;
     const w = d.split('\n', 1);
+    UserSchoolName = w;
     school.placeholder = w;
     searchBtn.style.display = "none";
     if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0) {
@@ -134,16 +136,17 @@ let userCL = document.querySelector(".cl");
 let userNM = document.querySelector(".name");
 let userCH = document.querySelector(".school");
 
+
 function apiPut(uid, upw, ugr, ucl, unm, uch) {
     let jsonObj = new Object();
     let jsonArray = new Array();
-
+    console.log(UserSchoolName);
     uid = `${uid}`;
     upw = `${upw}`;
     ugr = `${ugr}`;
     ucl = `${ucl}`;
     unm = `${unm}`;
-    uch = `${uch}`;
+    uch = `${UserSchoolName}`;
     const puts = [uid, upw, ugr, ucl, unm, uch];
 
     for (let i = 0; i < puts.length; i++) {
