@@ -112,6 +112,10 @@ input::placeholder {
 	margin-top: 20px;
 }
 .signup {
+	display:flex;
+	align-items: center;
+	text-align: center;
+	justify-content:center;
 	background-color: white;
 }
 /* button:hover {
