@@ -112,7 +112,6 @@ input::placeholder {
 	margin-top: 20px;
 }
 .signup {
-	display:flex;
 	background-color: white;
 }
 /* button:hover {
@@ -126,10 +125,10 @@ input::placeholder {
 	justify-content: center;
 	font-family: "MICEGothic Bold";
 }
-.a{
-	display:flex;
+.a {
+	display: flex;
 	flex-direction: column;
-	justify-content:center;
+	justify-content: center;
 	align-items: center;
 }
 a {
@@ -177,8 +176,8 @@ input:focus {
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 button.search_window_school {
 	margin-bottom: 10px;
