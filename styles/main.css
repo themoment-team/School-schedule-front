@@ -7,10 +7,10 @@
 }
 body,
 html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -63,16 +63,15 @@ html {
 	background-color: white;
 }
 .main__user__users__userBox input {
-
-  width: 300px;
-  margin: 3vh 0;
-  height: 40px;
-  border-radius: 5px;
-  outline: none;
-  border: #87cefa solid 1px;
-  padding-left: 20px;
-  font-size: 20px;
-  opacity: 0.4;
+	width: 300px;
+	margin: 3vh 0;
+	height: 40px;
+	border-radius: 5px;
+	outline: none;
+	border: #87cefa solid 1px;
+	padding-left: 20px;
+	font-size: 20px;
+	opacity: 0.4;
 }
 .main__user__users__userBox input:focus {
 	transition: ease-in-out 0.3s;
@@ -222,7 +221,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .main__modify {
-
 	width: 20vw;
 	height: 100vh;
 	position: absolute;
@@ -271,9 +269,9 @@ input[type="number"]::-webkit-inner-spin-button {
 	color: #87cefa;
 	/* left: 2vw; */
 }
-.main__mid{
+.main__mid {
 	display: flex;
-	align-items:center;
+	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 }
@@ -383,9 +381,9 @@ body {
 	background-image: url(../images/i15143417824.jpg);
 	background-size: cover;
 }
-.Ymd__btn{
-	width:3vw;
-	height:3vw;
+.Ymd__btn {
+	width: 3vw;
+	height: 3vw;
 	border-radius: 30vh;
 	border: 0;
 	background-color: #1fa7fc;
@@ -394,18 +392,21 @@ body {
 	font-size: 3vh;
 	font-weight: bolder;
 }
-.button-wrap{
-	margin-top:10vh;
-	display:flex;
-	align-items:center;
+.button-wrap {
+	margin-top: 10vh;
+	display: flex;
+	align-items: center;
 	justify-content: center;
 }
-.subject__title{
+.subject__title {
 	margin-bottom: 5vh;
 }
-#minus{
+#minus {
 	margin-right: 1vw;
 }
-#plus{
+#plus {
 	margin-left: 1vw;
+}
+.subject {
+	height: 42px;
 }
