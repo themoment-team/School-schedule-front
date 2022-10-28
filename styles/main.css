@@ -7,10 +7,6 @@
 }
 body,
 html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -63,16 +59,15 @@ html {
 	background-color: white;
 }
 .main__user__users__userBox input {
-
-  width: 300px;
-  margin: 3vh 0;
-  height: 40px;
-  border-radius: 5px;
-  outline: none;
-  border: #87cefa solid 1px;
-  padding-left: 20px;
-  font-size: 20px;
-  opacity: 0.4;
+	width: 300px;
+	margin: 3vh 0;
+	height: 40px;
+	border-radius: 5px;
+	outline: none;
+	border: #87cefa solid 1px;
+	padding-left: 20px;
+	font-size: 20px;
+	opacity: 0.4;
 }
 .main__user__users__userBox input:focus {
 	transition: ease-in-out 0.3s;
@@ -221,7 +216,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .main__modify {
-
 	width: 20vw;
 	height: 100vh;
 	position: absolute;
