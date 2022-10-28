@@ -165,9 +165,9 @@ function apiPut(uid, upw, ugr, ucl, unm, uch) {
     jsonArray.push(jsonObj);
     console.log(jsonArray);
     console.log(jsonObj);
-    let url = 'http://3.39.150.178/signupInfo';
+    let url = 'http//3.39.150.178/signupInfo';
     fetch(url, {
-        method: 'put',
+        method: 'post',
         headers: {
             'Content-Type': 'application/json',
         },
