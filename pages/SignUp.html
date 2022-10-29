@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SiginUp</title>
   <link rel="stylesheet" href="../styles/SiginUp2.css">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <script src="https://kit.fontawesome.com/0d3908869d.js" crossorigin="anonymous"></script>
 </head>
 
@@ -31,10 +32,8 @@
         </form>
       </div>
       <button type="submit" form="loginForm" class="signup">회원가입</button>
-      <div class="if">비밀 번호를 잊어버리셨나요?<a href="#">&nbsp;&nbsp;비밀번호 찾기</a></div>
+      <div class="if">계정이 이미 있나요?<a href="../pages/SiginIn.html">&nbsp;&nbsp;로그인</a></div>
     </div>
-    <div class="if">계정이 이미 있나요?<a href="../pages/SiginIn.html">&nbsp;&nbsp;로그인</a></div>
-  </div>
   </div>
   <div class="search_window">
     <div class="exit" onclick="goBack()"><i class="fa-solid fa-x fa-xl"></i>
@@ -44,7 +43,8 @@
   <script src="../scripts/searchSchool.js"></script>
 </body>
 <script>
-  window.addEventListener('online', ()=>{ alert("온라인입니다") });
-  window.addEventListener('offline', ()=>{ alert("오프라인 입니다") });
+  window.addEventListener('online', () => { alert("온라인입니다") });
+  window.addEventListener('offline', () => { alert("오프라인 입니다") });
 </script>
+
 </html>

@@ -58,9 +58,11 @@ function schoolData() {
     });
 
 }
+let UserSchoolName
 function selectSchool(clicked_id) {
     const d = document.getElementById(clicked_id).innerText;
     const w = d.split('\n', 1);
+    UserSchoolName = w;
     school.placeholder = w;
     searchBtn.style.display = "none";
     if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0) {
@@ -87,14 +89,22 @@ function removeAllchild(div) {
 function Clicked() {
     console.log("실행");
     if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
-        const result = checkPassword();
-        if (result == true) {
-            setTimeout(() => signupBtn.disabled = false, 3000);
-        }//비밀번호가 정규식에 맞을때
-        else {
-            userPw.value = "";
-            sessionStorage.setItem("isLogin", true);
+        if (userGrade.value <= 0 || userClass.value <= 0) {
+            location.reload();
             signupBtn.disabled = true;
+            alert("학년 과 반은 0 사이어야 합니다");
+        } else {
+
+            const result = checkPassword();
+            if (result == true) {
+                setTimeout(() => signupBtn.disabled = false, 3000);
+            }//비밀번호가 정규식에 맞을때
+            else {
+                userPw.value = "";
+                sessionStorage.setItem("isLogin", true);
+                onSubmitButton();
+                signupBtn.disabled = true;
+            }
         }
     } else {
         signupBtn.disabled = true;
@@ -119,3 +129,83 @@ schoolSearch.addEventListener('click', schoolData);
 signupBtn.addEventListener('click', Clicked);
 schoolSearch.addEventListener('keyup', schoolData);
 signupBtn.addEventListener('keyup', Clicked);
+
+
+
+
+const signupBTN = document.querySelector(".signup");
+
+
+let userID = document.querySelector(".id");
+let userPW = document.querySelector(".pw");
+let userGR = document.querySelector(".gr");
+let userCL = document.querySelector(".cl");
+let userNM = document.querySelector(".name");
+let userCH = document.querySelector(".school");
+
+
+function apiPut(uid, upw, ugr, ucl, unm, uch) {
+    let jsonObj = new Object();
+    let jsonArray = new Array();
+    console.log(UserSchoolName);
+    uid = `${uid}`;
+    upw = `${upw}`;
+    ugr = `${ugr}`;
+    ucl = `${ucl}`;
+    unm = `${unm}`;
+    uch = `${UserSchoolName}`;
+    const puts = [uid, upw, ugr, ucl, unm, uch];
+
+    for (let i = 0; i < puts.length; i++) {
+        jsonObj.puts = puts[i];
+        jsonArray.push(jsonObj);
+        jsonObj = {};
+    }
+    jsonObj.commons = {
+        class1: uch,
+        grade: ugr,
+        name: unm,
+        password: upw,
+        school: uch,
+        userid: uid,
+    };
+    jsonArray.push(jsonObj);
+    console.log(jsonArray);
+    console.log(jsonObj);
+    let url = 'https://server.the-moment-schema.site/signupInfo';
+    fetch(url, {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            class1: uch,
+            grade: ugr,
+            name: unm,
+            password: upw,
+            school: uch,
+            userid: uid,
+        }),
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .then((json) => {
+            console.log(json);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
+
+const onSubmitButton = () => {
+    userID = userID.value;
+    userPW = userPW.value;
+    userGR = userGR.value;
+    userCL = userCL.value;
+    userNM = userNM.value;
+    userCH = userCH.value;
+    apiPut(userID, userPW, userGR, userCL, userNM, userCH);
+}
+
+signupBTN.addEventListener("click", onSubmitButton);
