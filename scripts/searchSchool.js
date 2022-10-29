@@ -162,23 +162,30 @@ function apiPut(uid, upw, ugr, ucl, unm, uch) {
         jsonObj = {};
     }
     jsonObj.commons = {
-        id: uid,
-        pw: upw,
+        class1: uch,
         grade: ugr,
-        class: uch,
         name: unm,
+        password: upw,
         school: uch,
+        userid: uid,
     };
     jsonArray.push(jsonObj);
     console.log(jsonArray);
     console.log(jsonObj);
-    let url = 'http://3.39.150.178/signupInfo';
+    let url = 'https://server.the-moment-schema.site/signupInfo';
     fetch(url, {
         method: 'post',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(jsonArray),
+        body: JSON.stringify({
+            class1: uch,
+            grade: ugr,
+            name: unm,
+            password: upw,
+            school: uch,
+            userid: uid,
+        }),
     })
         .then((res) => {
             return res.json();
