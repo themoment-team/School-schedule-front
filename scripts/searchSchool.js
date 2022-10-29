@@ -89,15 +89,22 @@ function removeAllchild(div) {
 function Clicked() {
     console.log("실행");
     if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
-        const result = checkPassword();
-        if (result == true) {
-            setTimeout(() => signupBtn.disabled = false, 3000);
-        }//비밀번호가 정규식에 맞을때
-        else {
-            userPw.value = "";
-            sessionStorage.setItem("isLogin", true);
-            onSubmitButton();
+        if (userGrade.value <= 0 || userClass.value <= 0) {
+            location.reload();
             signupBtn.disabled = true;
+            alert("학년 과 반은 0 사이어야 합니다");
+        } else {
+
+            const result = checkPassword();
+            if (result == true) {
+                setTimeout(() => signupBtn.disabled = false, 3000);
+            }//비밀번호가 정규식에 맞을때
+            else {
+                userPw.value = "";
+                sessionStorage.setItem("isLogin", true);
+                onSubmitButton();
+                signupBtn.disabled = true;
+            }
         }
     } else {
         signupBtn.disabled = true;
