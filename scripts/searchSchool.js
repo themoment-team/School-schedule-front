@@ -217,36 +217,26 @@ const checkSameThing = (e) =>{
 }
 
 function apiGet(eventValue, what){
-    let jsonObj = new Object();
-    let jsonArray = new Array();
+    let resID;
     console.log(UserSchoolName);
     const uid = `${eventValue}`
     const puts = [uid];
-
-    for (let i = 0; i < puts.length; i++) {
-        jsonObj.puts = puts[i];
-        jsonArray.push(jsonObj);
-        jsonObj = {};
-    }
-    jsonObj.commons = {
-        userid: uid,
-    };
-    jsonArray.push(jsonObj);
-    console.log(jsonArray);
-    console.log(jsonObj);
-    let url = 'https://server.the-moment-schema.site/overlab';
+    let url = 'https://server.the-moment-schema.site/overlap';
     fetch(url,{
         method: 'post',
-        headers: {
+        headers: { 
             'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+            userid: uid,
+        }),
     }
         )
     .then(res=>{
-        console.log(res);
-        res.text().then(function(text){
-        console.log("text 안에 데이터 = " + text);
-    })
+        const Response = res.json();
+        console.log(Response);
+        resID = Response;
+        console.log(resID);
     })
     .catch(err=>{
         console.log(err);
