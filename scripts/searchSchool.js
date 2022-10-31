@@ -9,6 +9,8 @@ const userName = document.querySelector('.name');
 const userGrade = document.querySelector(".gr");
 const userClass = document.querySelector(".cl");
 
+let isSameID;
+
 
 const check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
 let schoolInfo;
@@ -218,7 +220,6 @@ const checkSameThing = (e) =>{
 
 function apiGet(eventValue, what){
     let resID;
-    console.log(UserSchoolName);
     const uid = `${eventValue}`
     const puts = [uid];
     let url = 'https://server.the-moment-schema.site/overlap';
@@ -233,10 +234,24 @@ function apiGet(eventValue, what){
     }
         )
     .then(res=>{
-        const Response = res.json();
-        console.log(Response);
-        resID = Response;
-        console.log(resID);
+        return res.json();
+    })
+    .then(json => {
+        const Response = json;
+        resID = Response.data;
+        isSameID = resID;
+        console.log(isSameID);
+        const useID = document.querySelector(".useID");
+        if(isSameID == true){
+            useID.innerText = "사용 가능한 Id입니다";
+            useID.style.color = "blue";
+            useID.style.margin = 0;
+        }
+        else{
+            useID.innerText = "다른 사용자가 있는 Id입니다";
+            useID.style.color = "red";
+            useID.style.margin = 0;
+        }
     })
     .catch(err=>{
         console.log(err);
