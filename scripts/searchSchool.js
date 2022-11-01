@@ -9,6 +9,10 @@ const userName = document.querySelector('.name');
 const userGrade = document.querySelector(".gr");
 const userClass = document.querySelector(".cl");
 
+let isSameID;
+
+let isSignUp = false;
+
 
 const check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
 let schoolInfo;
@@ -87,30 +91,39 @@ function removeAllchild(div) {
     searchBtn.appendChild(exit);
 }
 function Clicked() {
-    console.log("실행");
-    if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
-        if (userGrade.value <= 0 || userClass.value <= 0) {
-            location.reload();
-            signupBtn.disabled = true;
-            alert("학년 과 반은 0 사이어야 합니다");
-        } else {
-
+    if(isSignUp==false){
+        alert("이미 존재하는 Id입니다");
+        userId.value = "";
+        signupBtn.disabled = true;
+        return; 
+    }
+    else if(isSignUp == true){
+        console.log("실행");
+        localStorage.setItem("setUserID", userId.value);
+        if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
             const result = checkPassword();
             if (result == true) {
-                setTimeout(() => signupBtn.disabled = false, 3000);
+                signupBtn.disabled = false;
             }//비밀번호가 정규식에 맞을때
             else {
-                userPw.value = "";
-                sessionStorage.setItem("isLogin", true);
-                onSubmitButton();
-                signupBtn.disabled = true;
+                console.log(isSignUp);
+                if(isSignUp === true){
+                    userPw.value = "";
+                    localStorage.setItem("setUserID", userId.value);
+                    sessionStorage.setItem("isLogin", true);
+                    onSubmitButton();
+                    signupBtn.disabled = true;
+                }else{
+                    alert("이미 존재하는 Id입니다");
+                    
+                    return;
+                }
             }
+            sessionStorage.setItem("isLogin", true);
+        } else {
+            signupBtn.disabled = true;
+            alert("입력되지 않은 칸이 있습니다");
         }
-        sessionStorage.setItem("isLogin", true);
-    } else {
-        signupBtn.disabled = true;
-        alert("입력되지 않은 칸이 있습니다");
-        location.reload();
     }
 }
 function checkPassword() {
@@ -219,41 +232,47 @@ const checkSameThing = (e) =>{
     }
     else if(e.target.classList[1] == 'pw'){
         const pwEventValue = e.target.value;
-        apiGet(pwEventValue, 'pw');
+        return;
     }
 }
 
 function apiGet(eventValue, what){
-    let jsonObj = new Object();
-    let jsonArray = new Array();
-    console.log(UserSchoolName);
+    let resID;
     const uid = `${eventValue}`
     const puts = [uid];
-
-    for (let i = 0; i < puts.length; i++) {
-        jsonObj.puts = puts[i];
-        jsonArray.push(jsonObj);
-        jsonObj = {};
-    }
-    jsonObj.commons = {
-        userid: uid,
-    };
-    jsonArray.push(jsonObj);
-    console.log(jsonArray);
-    console.log(jsonObj);
-    let url = 'https://server.the-moment-schema.site/overlab';
+    let url = 'https://server.the-moment-schema.site/overlap';
     fetch(url,{
         method: 'post',
-        headers: {
+        headers: { 
             'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+            userid: uid,
+        }),
     }
         )
     .then(res=>{
-        console.log(res);
-        res.text().then(function(text){
-        console.log("text 안에 데이터 = " + text);
+        return res.json();
     })
+    .then(json => {
+        const Response = json;
+        resID = Response.data;
+        isSameID = resID;
+        console.log(isSameID);
+        const useID = document.querySelector(".useID");
+        if(isSameID == true){
+            isSignUp = true;
+            useID.innerText = "사용 가능한 Id입니다";
+            useID.style.color = "blue";
+            useID.style.margin = 0;
+        }
+        else{
+            isSignUp = false;
+            useID.innerText = "다른 사용자가 있는 Id입니다";
+            useID.style.color = "red";
+            useID.style.margin = 0;
+            isSignUp = false;
+        }
     })
     .catch(err=>{
         console.log(err);
