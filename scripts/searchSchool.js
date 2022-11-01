@@ -106,6 +106,7 @@ function Clicked() {
                 signupBtn.disabled = true;
             }
         }
+        sessionStorage.setItem("isLogin", true);
     } else {
         signupBtn.disabled = true;
         alert("입력되지 않은 칸이 있습니다");
@@ -179,7 +180,7 @@ function apiPut(uid, upw, ugr, ucl, unm, uch) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            class1: uch,
+            class1: ucl,
             grade: ugr,
             name: unm,
             password: upw,
@@ -209,3 +210,55 @@ const onSubmitButton = () => {
 }
 
 signupBTN.addEventListener("click", onSubmitButton);
+
+const checkSameThing = (e) =>{
+    console.log(e.target.classList[1]);
+    if(e.target.classList[1] == 'id'){
+        const idEventValue = e.target.value;
+        apiGet(idEventValue, 'id');
+    }
+    else if(e.target.classList[1] == 'pw'){
+        const pwEventValue = e.target.value;
+        apiGet(pwEventValue, 'pw');
+    }
+}
+
+function apiGet(eventValue, what){
+    let jsonObj = new Object();
+    let jsonArray = new Array();
+    console.log(UserSchoolName);
+    const uid = `${eventValue}`
+    const puts = [uid];
+
+    for (let i = 0; i < puts.length; i++) {
+        jsonObj.puts = puts[i];
+        jsonArray.push(jsonObj);
+        jsonObj = {};
+    }
+    jsonObj.commons = {
+        userid: uid,
+    };
+    jsonArray.push(jsonObj);
+    console.log(jsonArray);
+    console.log(jsonObj);
+    let url = 'https://server.the-moment-schema.site/overlab';
+    fetch(url,{
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+        )
+    .then(res=>{
+        console.log(res);
+        res.text().then(function(text){
+        console.log("text 안에 데이터 = " + text);
+    })
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+}
+
+userId.addEventListener("change", checkSameThing);
+userPw.addEventListener("change", checkSameThing);
