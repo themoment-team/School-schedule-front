@@ -11,6 +11,8 @@ const userClass = document.querySelector(".cl");
 
 let isSameID;
 
+let isSignUp = false;
+
 
 const check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
 let schoolInfo;
@@ -89,23 +91,38 @@ function removeAllchild(div) {
     searchBtn.appendChild(exit);
 }
 function Clicked() {
-    console.log("실행");
-    if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
-        const result = checkPassword();
-        if (result == true) {
-            setTimeout(() => signupBtn.disabled = false, 3000);
-        }//비밀번호가 정규식에 맞을때
-        else {
-            userPw.value = "";
-            sessionStorage.setItem("isLogin", true);
-            onSubmitButton();
-            signupBtn.disabled = true;
-        }
-        sessionStorage.setItem("isLogin", true);
-    } else {
+    if(isSignUp==false){
+        alert("중복된 비밀번호 입니다");
+        userId.value = "";
         signupBtn.disabled = true;
-        alert("입력되지 않은 칸이 있습니다");
-        location.reload();
+
+        return; 
+    }
+    else if(isSignUp == true){
+        console.log("실행");
+        if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
+            const result = checkPassword();
+            if (result == true) {
+                signupBtn.disabled = false;
+            }//비밀번호가 정규식에 맞을때
+            else {
+                console.log(isSignUp);
+                if(isSignUp === true){
+                    userPw.value = "";
+                    sessionStorage.setItem("isLogin", true);
+                    onSubmitButton();
+                    signupBtn.disabled = true;
+                }else{
+                    alert("중복된 비밀번호 입니다");
+                    
+                    return;
+                }
+            }
+            sessionStorage.setItem("isLogin", true);
+        } else {
+            signupBtn.disabled = true;
+            alert("입력되지 않은 칸이 있습니다");
+        }
     }
 }
 function checkPassword() {
@@ -214,7 +231,7 @@ const checkSameThing = (e) =>{
     }
     else if(e.target.classList[1] == 'pw'){
         const pwEventValue = e.target.value;
-        apiGet(pwEventValue, 'pw');
+        return;
     }
 }
 
@@ -243,14 +260,17 @@ function apiGet(eventValue, what){
         console.log(isSameID);
         const useID = document.querySelector(".useID");
         if(isSameID == true){
+            isSignUp = true;
             useID.innerText = "사용 가능한 Id입니다";
             useID.style.color = "blue";
             useID.style.margin = 0;
         }
         else{
+            isSignUp = false;
             useID.innerText = "다른 사용자가 있는 Id입니다";
             useID.style.color = "red";
             useID.style.margin = 0;
+            isSignUp = false;
         }
     })
     .catch(err=>{
