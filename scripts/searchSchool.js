@@ -92,7 +92,7 @@ function removeAllchild(div) {
 }
 function Clicked() {
     if(isSignUp==false){
-        alert("중복된 비밀번호 입니다");
+        alert("이미 존재하는 Id입니다");
         userId.value = "";
         signupBtn.disabled = true;
 
@@ -113,7 +113,7 @@ function Clicked() {
                     onSubmitButton();
                     signupBtn.disabled = true;
                 }else{
-                    alert("중복된 비밀번호 입니다");
+                    alert("이미 존재하는 Id입니다");
                     
                     return;
                 }
