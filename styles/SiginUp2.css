@@ -112,10 +112,10 @@ input::placeholder {
 	margin-top: 20px;
 }
 .signup {
-	display:flex;
+	display: flex;
 	align-items: center;
 	text-align: center;
-	justify-content:center;
+	justify-content: center;
 	background-color: white;
 }
 /* button:hover {
@@ -223,4 +223,33 @@ h3.title {
 	cursor: pointer;
 	top: 40px;
 	left: 30px;
+}
+
+@media screen and (max-width: 400px) {
+	.main {
+		width: 70vw;
+	}
+	.Logo {
+		width: 25vw;
+	}
+	.main__signUp__inputs__input {
+		width: 50vw;
+		height: 5vh;
+	}
+	.login {
+		width: 14vw;
+	}
+	.if {
+		font-size: 3vw;
+	}
+	.school {
+		width: 36vw;
+	}
+	.search {
+		width: 12vw;
+		height: 5vh;
+	}
+	.signup {
+		width: 15vw;
+	}
 }

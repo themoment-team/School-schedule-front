@@ -410,3 +410,39 @@ body {
 .subject {
 	height: 42px;
 }
+
+@media screen and (max-width: 400px) {
+	.sort {
+		width: 50vw;
+		height: 65vh;
+	}
+	.subject {
+		font-size: 2.5vh;
+	}
+	.main__user__users__BTN {
+		height: 5vh;
+		width: 11vw;
+	}
+	.Signinbox,
+	.SignupBox,
+	.bitch {
+		width: 11vw;
+		font-size: 1vw;
+	}
+	.main__user__users__userBox {
+		width: 40vw;
+	}
+	.main__user__users__userBox__userIMG {
+		width: 30vw;
+		height: 15vh;
+		font-size: 3vw;
+	}
+	.main__user__users__userBox input {
+		width: 30vw;
+		font-size: 3vw;
+	}
+	.Ymd__btn {
+		width: 10vw;
+		height: 5vh;
+	}
+}
