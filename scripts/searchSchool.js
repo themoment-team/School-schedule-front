@@ -152,9 +152,6 @@ let userCH = document.querySelector(".school");
 
 
 function apiPut(uid, upw, ugr, ucl, unm, uch) {
-    let jsonObj = new Object();
-    let jsonArray = new Array();
-    console.log(UserSchoolName);
     uid = `${uid}`;
     upw = `${upw}`;
     ugr = `${ugr}`;
@@ -162,23 +159,6 @@ function apiPut(uid, upw, ugr, ucl, unm, uch) {
     unm = `${unm}`;
     uch = `${UserSchoolName}`;
     const puts = [uid, upw, ugr, ucl, unm, uch];
-
-    for (let i = 0; i < puts.length; i++) {
-        jsonObj.puts = puts[i];
-        jsonArray.push(jsonObj);
-        jsonObj = {};
-    }
-    jsonObj.commons = {
-        class1: uch,
-        grade: ugr,
-        name: unm,
-        password: upw,
-        school: uch,
-        userid: uid,
-    };
-    jsonArray.push(jsonObj);
-    console.log(jsonArray);
-    console.log(jsonObj);
     let url = 'https://server.the-moment-schema.site/signupInfo';
     fetch(url, {
         method: 'post',
