@@ -8,12 +8,26 @@ const size = 2;
 // const YMDD = document.getElementById("YMD");
 const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
-const subject__title= document.querySelector(".subject__title");
+const subject__title = document.querySelector(".subject__title");
 const handleClicl = () => {
   date = `${date}`;
   date = date.padStart(2, "0");
   YMD = `${year}${month}${date}`;
   subject__title.innerText = YMD;
+  const setUserID = localStorage.getItem("setUserID");
+  let url = `https://server.the-moment-schema.site/memberInfo`;
+  fetch(url, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userid: setUserID,
+    }),
+  })
+    .then((res) => console.log(res))
+    .then((res) => res.json())
+    .then((res) => console.log(res));
   fetch(
     `https://open.neis.go.kr/hub/hisTimetable?KEY=a810dd9ec8c04e57b5ecc4d4ff4e400e&Type=json&pIndex=1&pSize=10&ATPT_OFCDC_SC_CODE=F10&SD_SCHUL_CODE=7380292&AY=2022&SEM=2&ALL_TI_YMD=${YMD}&GRADE=1&CLASS_NM=4`
   )
@@ -23,16 +37,30 @@ const handleClicl = () => {
         const inner = document.getElementById(`${i}`);
         try {
           if (json.hisTimetable[1].row[i].ITRT_CNTNT.length >= 9) {
-            inner.innerText = `${i + 1}교시 ${json.hisTimetable[1].row[i].ITRT_CNTNT
-              }`;
+            inner.innerText = `${i + 1}교시 ${
+              json.hisTimetable[1].row[i].ITRT_CNTNT
+            }`;
           } else {
-            inner.innerText = `${i + 1}교시 ${json.hisTimetable[1].row[i].ITRT_CNTNT
-              }`;
+            inner.innerText = `${i + 1}교시 ${
+              json.hisTimetable[1].row[i].ITRT_CNTNT
+            }`;
           }
         } catch {
           inner.innerText = `${i + 1}교시 데이터값 없음`;
         }
       }
+    });
+};
+
+const SchoolSearchFunc = () => {
+  let schoolCode = "";
+  const url = `https://open.neis.go.kr/hub/schoolInfo?KEY=50eecef7f1de425d8ad7fd3e8026d8ce&Type=json&pindex=1&pSize=100&SCHUL_NM=${schoolName}`;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => {
+      console.log("Sex");
+      console.log(json);
     });
 };
 function YMDPlus() {
