@@ -91,18 +91,11 @@ function removeAllchild(div) {
     searchBtn.appendChild(exit);
 }
 function Clicked() {
-    if(isSignUp==false){
-        alert("이미 존재하는 Id입니다");
-        userId.value = "";
-        signupBtn.disabled = true;
-        return; 
-    }
-    else if(isSignUp == true){
         console.log("실행");
         localStorage.setItem("setUserID", userId.value);
         if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
             const result = checkPassword();
-            if (result == true) {
+            if (result == true && isSignUp) {
                 signupBtn.disabled = false;
             }//비밀번호가 정규식에 맞을때
             else {
@@ -115,8 +108,9 @@ function Clicked() {
                     signupBtn.disabled = true;
                 }else{
                     alert("이미 존재하는 Id입니다");
-                    
-                    return;
+                    userId.value = "";
+                    signupBtn.disabled = true;
+                    return; 
                 }
             }
             sessionStorage.setItem("isLogin", true);
@@ -124,7 +118,6 @@ function Clicked() {
             signupBtn.disabled = true;
             alert("입력되지 않은 칸이 있습니다");
         }
-    }
 }
 function checkPassword() {
     if (!check.test(userPw.value)) {
