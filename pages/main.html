@@ -117,12 +117,12 @@
 <script>
   window.addEventListener('online', ()=>{ alert("온라인입니다") });
   window.addEventListener('offline', ()=>{ alert("오프라인 입니다") });
-  let userName;
-  let userSchool;
-  let userGrade;
-  let userClass;
-  const setUserID = localStorage.getItem("setUserID");
   window.onload = () =>{
+    let userName;
+    let userSchool;
+    let userGrade;
+    let userClass;
+    const setUserID = localStorage.getItem("setUserID");
     let url = 'https://server.the-moment-schema.site/memberInfo';
         fetch(url, {
             method: 'post',
