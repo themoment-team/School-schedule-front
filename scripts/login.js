@@ -29,11 +29,11 @@ function onClick() {
             window.location.reload();
             return;
         }else{
-            sendID = userId.value.substring;
-            localStorage.setItem("userID", sendID);
+            sessionStorage.setItem("isLogin", true);
+            sendID = userId.value;
+            localStorage.setItem("setUserID", sendID);
             userBtn.style.backgroundColor = '#c5e9ff';
             userBtn.style.color = 'black';
-            sessionStorage.setItem("isLogin", true);
         }
     } else {
         userBtn.disabled = true;
