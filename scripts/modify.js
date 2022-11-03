@@ -1,4 +1,5 @@
 const modifyBTNzz = document.getElementById("modifyBTN");
+let uid = localStorage.getItem("setUserID");
 
 const turnonClick = () => {
     const userName = document.getElementById("inputN1").value;
@@ -28,34 +29,17 @@ const turnonClick = () => {
 }
 
 function asyncTest(userName, grade,school,CLASS,userIdTest) {
-    if(userIdTest != localStorage.getItem("userID")){
+    uid = localStorage.getItem("setUserID");
+    if(userIdTest != uid){
         alert("아이디가 다릅니다");
         return;
     }
     else{
-        let jsonObj = new Object();
-        let jsonArray = new Array();
-    
         const userInfo = `${userName}`;
         const putGrade = `${grade}`;
         const putSchool = `${school}`;
         const putClass = `${CLASS}`;
         const putID = `${userIdTest}`;
-        const puts = [userInfo, putGrade, putSchool, putClass, putID];
-    
-        for (let i = 0; i < puts.length; i++) {
-            jsonObj.puts = puts[i];
-            jsonArray.push(jsonObj);
-            jsonObj = {};
-        }
-        jsonObj.commons = {
-            name: userInfo,
-            school: putSchool,
-            grade: putGrade,
-            class: putClass,
-            userid: putID,
-        };
-        jsonArray.push(jsonObj);
     
         let url = 'https://server.the-moment-schema.site/modify';
         fetch(url, {
@@ -63,7 +47,13 @@ function asyncTest(userName, grade,school,CLASS,userIdTest) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(jsonArray),
+            body: JSON.stringify({
+                class1: putClass,
+                grade: putGrade,
+                name: userInfo,
+                school: putSchool,
+                userid: putID,
+            }),
         })
             .then((res) => {
                 return res.json();

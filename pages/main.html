@@ -117,5 +117,36 @@
 <script>
   window.addEventListener('online', ()=>{ alert("온라인입니다") });
   window.addEventListener('offline', ()=>{ alert("오프라인 입니다") });
+  window.onload = () =>{
+    let userName;
+    let userSchool;
+    let userGrade;
+    let userClass;
+    const setUserID = localStorage.getItem("setUserID");
+    let url = 'https://server.the-moment-schema.site/memberInfo';
+        fetch(url, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userid: setUserID,
+            }),
+        })
+            .then((res) => {
+                return res.json();
+              })
+              .then((json) => {
+                console.log(json);
+                userName = json.name;
+                userSchool = json.school;
+                userGrade = json.grade;
+                userClass = json.class1;
+                document.querySelector(`#in1`).value = userName;
+                document.querySelector(`#in2`).value = userSchool;
+                document.querySelector(`#in3`).value = userGrade;
+                document.querySelector(`#in4`).value = userClass;
+            })
+  }
 </script>
 </html>
