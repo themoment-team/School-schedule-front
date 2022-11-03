@@ -10,7 +10,7 @@ const userGrade = document.querySelector(".gr");
 const userClass = document.querySelector(".cl");
 
 let isSameID;
-
+let isSamePW;
 let isSignUp = false;
 
 
@@ -91,33 +91,33 @@ function removeAllchild(div) {
     searchBtn.appendChild(exit);
 }
 function Clicked() {
-        console.log("실행");
-        localStorage.setItem("setUserID", userId.value);
-        if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
-            const result = checkPassword();
-            if (result == true && isSignUp) {
-                signupBtn.disabled = false;
-            }//비밀번호가 정규식에 맞을때
-            else {
-                console.log(isSignUp);
-                if(isSignUp === true){
-                    userPw.value = "";
-                    localStorage.setItem("setUserID", userId.value);
-                    sessionStorage.setItem("isLogin", true);
-                    onSubmitButton();
-                    signupBtn.disabled = true;
-                }else{
-                    alert("이미 존재하는 Id입니다");
-                    userId.value = "";
-                    signupBtn.disabled = true;
-                    return; 
-                }
+    console.log("실행");
+    localStorage.setItem("setUserID", userId.value);
+    if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
+        const result = checkPassword();
+        if (result == true && isSignUp) {
+            signupBtn.disabled = false;
+        }//비밀번호가 정규식에 맞을때
+        else {
+            console.log(isSignUp);
+            if (isSignUp === true) {
+                userPw.value = "";
+                localStorage.setItem("setUserID", userId.value);
+                localStorage.setItem("setUserPW", userPw.value);
+                sessionStorage.setItem("isLogin", true);
+                onSubmitButton();
+                signupBtn.disabled = true;
+            } else {
+                userId.value = "";
+                signupBtn.disabled = true;
+                return;
             }
-            sessionStorage.setItem("isLogin", true);
-        } else {
-            signupBtn.disabled = true;
-            alert("입력되지 않은 칸이 있습니다");
         }
+        sessionStorage.setItem("isLogin", true);
+    } else {
+        signupBtn.disabled = true;
+        alert("입력되지 않은 칸이 있습니다");
+    }
 }
 function checkPassword() {
     if (!check.test(userPw.value)) {
@@ -197,60 +197,92 @@ const onSubmitButton = () => {
 
 signupBTN.addEventListener("click", onSubmitButton);
 
-const checkSameThing = (e) =>{
+const checkSameThing = (e) => {
+    console.log(e);
     console.log(e.target.classList[1]);
-    if(e.target.classList[1] == 'id'){
+    if (e.target.classList[1] == 'id') {
         const idEventValue = e.target.value;
         apiGet(idEventValue, 'id');
     }
-    else if(e.target.classList[1] == 'pw'){
+    else if (e.target.classList[1] == 'pw') {
         const pwEventValue = e.target.value;
-        return;
+        apiGet(pwEventValue, 'pw');
     }
 }
+const useID = document.querySelector(".useID");
+const usePW = document.querySelector(".usePW");
 
-function apiGet(eventValue, what){
+function apiGet(eventValue, what) {
     let resID;
     const uid = `${eventValue}`
     const puts = [uid];
+    const upw = `${eventValue}`
+    const putt = [upw];
     let url = 'https://server.the-moment-schema.site/overlap';
-    fetch(url,{
+    fetch(url, {
         method: 'post',
-        headers: { 
+        headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
             userid: uid,
+            password: upw,
         }),
     }
-        )
-    .then(res=>{
-        return res.json();
-    })
-    .then(json => {
-        const Response = json;
-        resID = Response.data;
-        isSameID = resID;
-        console.log(isSameID);
-        const useID = document.querySelector(".useID");
-        if(isSameID == true){
-            isSignUp = true;
-            useID.innerText = "사용 가능한 Id입니다";
-            useID.style.color = "blue";
-            useID.style.margin = 0;
-        }
-        else{
-            isSignUp = false;
-            useID.innerText = "다른 사용자가 있는 Id입니다";
-            useID.style.color = "red";
-            useID.style.margin = 0;
-            isSignUp = false;
-        }
-    })
-    .catch(err=>{
-        console.log(err);
-    })
+    )
+        .then(res => {
+            return res.json();
+        })
+        .then(json => {
+            const Response = json;
+            const resPonse = json;
+            resPW = Response.data;
+            resID = Response.data;
+            isSamePW = resPW;
+            isSameID = resID;
+            console.log(isSameID);
+            if (what == 'id') {
+                checkId();
+                console.log("아이디 검사");
+            }
+            else {
+                checkPw();
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
 
+function checkId() {
+    if (isSameID == true) {
+        isSignUp = true;
+        useID.innerText = "사용 가능한 Id입니다";
+        useID.style.color = "blue";
+        useID.style.margin = 0;
+    }
+    else {
+        isSignUp = false;
+        useID.innerText = "다른 사용자가 있는 Id입니다";
+        useID.style.color = "red";
+        useID.style.margin = 0;
+        isSignUp = false;
+    }
+}
+function checkPw() {
+    if (isSamePW == true) {
+        isSignUp = true;
+        usePW.innerText = "사용 가능한 비밀번호입니다";
+        usePW.style.color = "blue";
+        usePW.style.margin = 0;
+    }
+    else {
+        isSignUp = false;
+        usePW.innerText = "다른 사용자가 있는 비밀번호입니다";
+        usePW.style.color = "red";
+        usePW.style.margin = 0;
+        isSignUp = false;
+    }
+}
 userId.addEventListener("change", checkSameThing);
 userPw.addEventListener("change", checkSameThing);
