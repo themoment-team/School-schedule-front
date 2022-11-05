@@ -92,7 +92,7 @@ function removeAllchild(div) {
 }
 function Clicked() {
     console.log("실행");
-    sessionStorage.setItem("setUserID", userId.value);
+    localStorage.setItem("setUserID", userId.value);
     if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
         const result = checkPassword();
         if (result == true && isSignUp) {
@@ -102,8 +102,8 @@ function Clicked() {
             console.log(isSignUp);
             if (isSignUp === true) {
                 userPw.value = "";
-                sessionStorage.setItem("setUserID", userId.value);
-                sessionStorage.setItem("setUserPW", userPw.value);
+                localStorage.setItem("setUserID", userId.value);
+                localStorage.setItem("setUserPW", userPw.value);
                 sessionStorage.setItem("isLogin", true);
                 onSubmitButton();
                 signupBtn.disabled = true;

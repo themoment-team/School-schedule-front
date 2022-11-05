@@ -1,5 +1,5 @@
 const modifyBTNzz = document.getElementById("modifyBTN");
-let uid = sessionStorage.getItem("setUserID");
+let uid = localStorage.getItem("setUserID");
 
 const turnonClick = () => {
     const userName = document.getElementById("inputN1").value;
@@ -15,11 +15,11 @@ const turnonClick = () => {
     else{
         const redP = document.getElementById("redP");
         redP.innerText = "";
-        sessionStorage.setItem("userName", userName);
-        sessionStorage.setItem("school", school);
-        sessionStorage.setItem("grade", grade);
-        sessionStorage.setItem("CLASS", CLASS);
-        sessionStorage.setItem("UserID", userIdTest);
+        localStorage.setItem("userName", userName);
+        localStorage.setItem("school", school);
+        localStorage.setItem("grade", grade);
+        localStorage.setItem("CLASS", CLASS);
+        localStorage.setItem("UserID", userIdTest);
         const in1 = document.getElementById("in1").value = userName;
         const in2 = document.getElementById("in2").value = school;
         const in3 = document.getElementById("in3").value = grade;
@@ -29,7 +29,7 @@ const turnonClick = () => {
 }
 
 function asyncTest(userName, grade,school,CLASS,userIdTest) {
-    uid = sessionStorage.getItem("setUserID");
+    uid = localStorage.getItem("setUserID");
     if(userIdTest != uid){
         alert("아이디가 다릅니다");
         return;
