@@ -1,5 +1,5 @@
 const Signinbox = document.querySelector(".Signinbox");
-let uid = localStorage.getItem("setUserID");
+let uid = sessionStorage.getItem("setUserID");
 
 
 window.onload = () => {
@@ -15,7 +15,7 @@ window.onload = () => {
 let i = 0;
 const onClha = () => {
     if(i%2 == 0){
-        uid = localStorage.getItem("setUserID");
+        uid = sessionStorage.getItem("setUserID");
         let url = 'https://server.the-moment-schema.site/logout/session';
         console.log(uid);
         fetch(url,{

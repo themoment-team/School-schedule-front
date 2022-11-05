@@ -14,7 +14,7 @@ const handleClicl = () => {
   date = date.padStart(2, "0");
   YMD = `${year}${month}${date}`;
   subject__title.innerText = YMD;
-  const setUserID = localStorage.getItem("setUserID");
+  const setUserID = sessionStorage.getItem("setUserID");
   let url = `https://server.the-moment-schema.site/memberInfo`;
   fetch(url, {
     method: "post",

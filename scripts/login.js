@@ -32,7 +32,7 @@ function onClick() {
         }else{
             sessionStorage.setItem("isLogin", true);
             sendID = userId.value;
-            localStorage.setItem("setUserID", sendID);
+            sessionStorage.setItem("setUserID", sendID);
             userBtn.style.backgroundColor = '#c5e9ff';
             userBtn.style.color = 'black';
         }

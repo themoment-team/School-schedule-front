@@ -122,7 +122,7 @@
     let userSchool;
     let userGrade;
     let userClass;
-    const setUserID = localStorage.getItem("setUserID");
+    const setUserID = sessionStorage.getItem("setUserID");
     let url = 'https://server.the-moment-schema.site/memberInfo';
         fetch(url, {
             method: 'post',
