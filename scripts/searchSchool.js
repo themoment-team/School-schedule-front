@@ -91,8 +91,8 @@ function removeAllchild(div) {
     searchBtn.appendChild(exit);
 }
 function Clicked() {
-    console.log("실행");const noID = userId.value;
-    localStorage.setItem("setUserID", noID);
+    console.log("실행");
+    localStorage.setItem("setUserID", userId.value);
     if (userId.value.length > 0 && userPw.value.length > 0 && userName.value.length > 0 && userClass.value.length > 0 && userGrade.value.length > 0 && schoolSearch.disabled) {
         const result = checkPassword();
         if (result == true && isSignUp) {
@@ -102,8 +102,7 @@ function Clicked() {
             console.log(isSignUp);
             if (isSignUp === true) {
                 userPw.value = "";
-                const uIvalue = userId.value;
-                localStorage.setItem("setUserID", uIvalue);
+                localStorage.setItem("setUserID", userId.value);
                 localStorage.setItem("setUserPW", userPw.value);
                 sessionStorage.setItem("isLogin", true);
                 onSubmitButton();
