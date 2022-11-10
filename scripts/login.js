@@ -22,14 +22,17 @@ function checkPassword() {
     return true;
 }
 
+let isTrueClick = false;
+
 function onClick() {
     if (userId.value.length > 0 && userPw.value.length > 0) {
         if (checkPassword() === false) {
             alert('비밀번호가 정규식에 맞지 않습니다');
             userBtn.disabled = true;
-            window.location.reload();
+            location.reload();
             return;
         } else {
+            isTrueClick = true;
             const idEventValue = e.target.value;
             apiGet(idEventValue, 'id');
             sessionStorage.setItem('isLogin', true);
@@ -37,6 +40,7 @@ function onClick() {
             localStorage.setItem('setUserID', sendID);
             userBtn.style.backgroundColor = '#c5e9ff';
             userBtn.style.color = 'black';
+            return;
         }
     } else {
         userBtn.disabled = true;
@@ -58,6 +62,7 @@ const checkSameThing = (e) => {
 };
 
 function apiGet(eventValue, what) {
+    if (!isTrueClick) return;
     let resID;
     const uid = `${eventValue}`;
     const puts = [uid];
