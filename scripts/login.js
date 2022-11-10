@@ -1,3 +1,4 @@
+let isTrueClick = false;
 const userId = document.querySelector('.id');
 const userBtn = document.querySelector('button');
 const userPw = document.querySelector('.pw');
@@ -21,8 +22,6 @@ function checkPassword() {
     }
     return true;
 }
-
-let isTrueClick = false;
 
 function onClick() {
     if (userId.value.length > 0 && userPw.value.length > 0) {
