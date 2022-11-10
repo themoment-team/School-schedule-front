@@ -122,7 +122,7 @@
     let userSchool;
     let userGrade;
     let userClass;
-    const setUserID = sessionStorage.getItem("setUserID");
+    const setUserID = localStorage.getItem("setUserID");
     let url = 'https://server.the-moment-schema.site/memberInfo';
         fetch(url, {
             method: 'post',
@@ -137,6 +137,7 @@
                 return res.json();
               })
               .then((json) => {
+                console.log(setUserID);
                 console.log(json);
                 userName = json.name;
                 userSchool = json.school;
