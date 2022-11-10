@@ -30,6 +30,8 @@ function onClick() {
             window.location.reload();
             return;
         } else {
+            const idEventValue = e.target.value;
+            apiGet(idEventValue, 'id');
             sessionStorage.setItem('isLogin', true);
             const sendID = userId.value;
             localStorage.setItem('setUserID', sendID);
@@ -49,13 +51,12 @@ userBtn.addEventListener('click', onClick);
 const checkSameThing = (e) => {
     console.log(e.target.classList[1]);
     if (e.target.classList[1] == 'id') {
-        const idEventValue = e.target.value;
-        apiGet(idEventValue, 'id');
     } else if (e.target.classList[1] == 'pw') {
         const pwEventValue = e.target.value;
         return;
     }
 };
+
 function apiGet(eventValue, what) {
     let resID;
     const uid = `${eventValue}`;
