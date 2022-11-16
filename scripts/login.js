@@ -32,14 +32,40 @@ function onClick() {
             return;
         } else {
             isTrueClick = true;
-            const idEventValue = e.target.value;
-            apiGet(idEventValue, 'id');
-            sessionStorage.setItem('isLogin', true);
-            const sendID = userId.value;
-            localStorage.setItem('setUserID', sendID);
-            userBtn.style.backgroundColor = '#c5e9ff';
-            userBtn.style.color = 'black';
-            return;
+            const uid = userId.value;
+            const upw = userPw.value;
+            let url = 'https://server.the-moment-schema.site/loginInfo';
+            fetch(url, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userid: uid,
+                    password: upw,
+                }),
+            })
+                .then((res) => {
+                    return res.json();
+                })
+                .then((json) => {
+                    console.log(json);
+                    const status = json.status;
+                    if (status === 404) {
+                        userBtn.disabled = true;
+                        alert('id나 password가 잘못되었습니다');
+                        location.reload();
+                    } else if (status === 200) {
+                        sessionStorage.setItem('isLogin', true);
+                        const sendID = userId.value;
+                        localStorage.setItem('setUserID', sendID);
+                        userBtn.style.backgroundColor = '#c5e9ff';
+                        userBtn.style.color = 'black';
+                        location = '../pages/main.html';
+                        return;
+                    }
+                });
+            userBtn.disabled = true;
         }
     } else {
         userBtn.disabled = true;
@@ -60,45 +86,4 @@ const checkSameThing = (e) => {
     }
 };
 
-function apiGet(eventValue, what) {
-    if (!isTrueClick) return;
-    let resID;
-    const uid = `${eventValue}`;
-    const puts = [uid];
-    let url = 'https://server.the-moment-schema.site/overlap';
-    fetch(url, {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            userid: uid,
-        }),
-    })
-        .then((res) => {
-            return res.json();
-        })
-        .then((json) => {
-            const Response = json;
-            resID = Response.data;
-            isSameID = resID;
-            console.log(isSameID);
-            const useID = document.querySelector('.useID');
-            if (isSameID == true) {
-                isSignUp = true;
-                useID.innerText = '사용 가능한 Id입니다';
-                useID.style.color = 'blue';
-                useID.style.margin = 0;
-            } else {
-                isSignUp = false;
-                useID.innerText = '다른 사용자가 있는 Id입니다';
-                useID.style.color = 'red';
-                useID.style.margin = 0;
-                isSignUp = false;
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}
 // userBtn.addEventListener('click', signInBtn);
