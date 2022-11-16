@@ -38,7 +38,7 @@ const handleClicl = () => {
             userGrade = json.grade;
             userClass = json.class1;
             document.querySelector(`#in1`).value = userName;
-            document.querySelector(`#in2`).value = userSchool;
+            document.querySelector(`#in2`).placeholder = userSchool;
             document.querySelector(`#in3`).value = userGrade;
             document.querySelector(`#in4`).value = userClass;
         });
@@ -90,20 +90,17 @@ const handleClicl = () => {
                                         json.hisTimetable[1].row[i].ITRT_CNTNT
                                             .length >= 9
                                     ) {
-                                        inner.innerText = `${i + 1}교시 ${
-                                            json.hisTimetable[1].row[i]
-                                                .ITRT_CNTNT
-                                        }`;
+                                        inner.innerText = `${i + 1}교시 ${json.hisTimetable[1].row[i]
+                                            .ITRT_CNTNT
+                                            }`;
                                     } else {
-                                        inner.innerText = `${i + 1}교시 ${
-                                            json.hisTimetable[1].row[i]
-                                                .ITRT_CNTNT
-                                        }`;
+                                        inner.innerText = `${i + 1}교시 ${json.hisTimetable[1].row[i]
+                                            .ITRT_CNTNT
+                                            }`;
                                     }
                                 } catch {
-                                    inner.innerText = `${
-                                        i + 1
-                                    }교시 데이터값 없음`;
+                                    inner.innerText = `${i + 1
+                                        }교시 데이터값 없음`;
                                 }
                             }
                         });
