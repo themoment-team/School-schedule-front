@@ -20,7 +20,7 @@ const turnonClick = () => {
         localStorage.setItem('CLASS', CLASS);
         localStorage.setItem('UserID', userIdTest);
         const in1 = (document.getElementById('in1').value = userName);
-        const in2 = (document.getElementById('in2').value = school);
+        const in2 = (document.getElementById('in2').placeholder = school);
         const in3 = (document.getElementById('in3').value = grade);
         const in4 = (document.getElementById('in4').value = CLASS);
         asyncTest(userName, grade, school, CLASS, userIdTest);
