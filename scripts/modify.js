@@ -84,6 +84,7 @@ function schoolData() {
         .then((json) => {
             console.log(json);
             try {
+                schoolSearch.disabled = false;
                 const s = json.schoolInfo[1].row;
                 const a = s.filter(function (s) {
                     return s.ORG_RDNMA;
@@ -110,9 +111,9 @@ function schoolData() {
                 searchBtn.style.flexDirection = 'column';
                 searchBtn.style.display = 'flex';
                 school.value = null;
-                schoolSearch.disabled = true;
+                // schoolSearch.disabled = true;
                 schoolSearch.style.cursor = 'default';
-                school.disabled = true;
+                // school.disabled = true;
             } catch (error) {
                 alert('존재하지 않는 학교입니다');
                 school.value = null;
@@ -143,7 +144,7 @@ function goBack() {
     schoolSearch.disabled = false;
     schoolSearch.style.cursor = 'pointer';
     school.disabled = false;
-    schoolName = null
+    schoolName = null;
     removeAllchild(searchBtn);
 }
 function removeAllchild(div) {
