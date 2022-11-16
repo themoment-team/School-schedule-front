@@ -69,6 +69,11 @@ function asyncTest(userName, grade, school, CLASS, userIdTest) {
 modifyBTN.addEventListener('click', () => {
     turnonClick();
     setTimeout(turnonClick, 200);
+    setTimeout(turnonClick, 210);
+    setTimeout(turnonClick, 220);
+    setTimeout(() => {
+        window.location.reload();
+    }, 230);
 });
 
 const schoolSearch = document.querySelector('.search');
@@ -128,14 +133,7 @@ function selectSchool(clicked_id) {
     UserSchoolName = w;
     school.placeholder = w;
     searchBtn.style.display = 'none';
-    if (
-        userId.value.length > 0 &&
-        userPw.value.length > 0 &&
-        userName.value.length > 0
-    ) {
-        signupBtn.style.background = '#c5e9ff';
-        signupBtn.style.color = 'black';
-    }
+    removeAllchild(searchBtn);
 }
 function goBack() {
     searchBtn.style.flexDirection = 'column';
