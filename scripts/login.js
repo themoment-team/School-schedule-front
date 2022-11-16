@@ -35,7 +35,6 @@ function onClick() {
             const uid = userId.value;
             const upw = userPw.value;
             let url = 'https://server.the-moment-schema.site/loginInfo';
-            console.log(uid, upw);
             fetch(url, {
                 method: 'post',
                 headers: {
@@ -51,13 +50,22 @@ function onClick() {
                 })
                 .then((json) => {
                     console.log(json);
+                    const status = json.status;
+                    if (status === 404) {
+                        userBtn.disabled = true;
+                        alert('id나 password가 잘못되었습니다');
+                        location.reload();
+                    } else if (status === 200) {
+                        sessionStorage.setItem('isLogin', true);
+                        const sendID = userId.value;
+                        localStorage.setItem('setUserID', sendID);
+                        userBtn.style.backgroundColor = '#c5e9ff';
+                        userBtn.style.color = 'black';
+                        location = '../pages/main.html';
+                        return;
+                    }
                 });
-            sessionStorage.setItem('isLogin', true);
-            const sendID = userId.value;
-            localStorage.setItem('setUserID', sendID);
-            userBtn.style.backgroundColor = '#c5e9ff';
-            userBtn.style.color = 'black';
-            return;
+            userBtn.disabled = true;
         }
     } else {
         userBtn.disabled = true;
