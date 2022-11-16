@@ -15,6 +15,57 @@ html {
 	padding: 0;
 	overflow: hidden;
 }
+button.search_window_school {
+	margin-bottom: 10px;
+}
+#goModify {
+	width: 4vw;
+}
+.search_window_school {
+	width: 12vw;
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #87cefa;
+	cursor: pointer;
+	font-family: "MICEGothic Bold";
+}
+.exit {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	cursor: pointer;
+	top: 40px;
+	left: 30px;
+}
+#modifyBTN {
+	width: 5vw;
+}
+.search_window {
+	position: absolute;
+	background-color: white;
+	width: 300px;
+	border: 1px solid #3baff7;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+	z-index: 900000000000;
+}
+.school__search {
+	display: flex;
+	align-items: center;
+}
+.search {
+	width: 3vw;
+	height: 10vh;
+	margin-left: 0.3vw;
+}
+#inputN2 {
+	width: 12vw;
+}
 .main__user__users__BTN {
 	width: 8vh;
 	height: 8vh;
@@ -63,7 +114,7 @@ html {
 	background-color: white;
 }
 .main__user__users__userBox input {
-	width: 300px;
+	width: 15vw;
 	margin: 3vh 0;
 	height: 40px;
 	border-radius: 5px;
@@ -122,8 +173,7 @@ html {
 	color: white;
 }
 .main__user__users__userBox button {
-	width: 100px;
-	height: 40px;
+	height: 43px;
 	border: skyblue solid 1px;
 	background-color: aliceblue;
 	border-radius: 10px;
@@ -310,7 +360,7 @@ nav {
 	margin-right: 1vw;
 	cursor: pointer;
 	border-radius: 5px;
-	font-size:0.8vw;
+	font-size: 0.8vw;
 }
 .Signinbox {
 	background-color: white;
