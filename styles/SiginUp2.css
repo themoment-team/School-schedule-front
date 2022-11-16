@@ -1,0 +1,255 @@
+@font-face {
+	font-family: "MICEGothic Bold";
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2")
+		format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+@import url(global.css);
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 100vh;
+	background-color: #87cefa;
+	box-shadow: 0px 0px 15px 1px rgb(157, 151, 151);
+}
+html {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.main {
+	flex-direction: column;
+	background-color: white;
+}
+.mainsignUp {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.mainsignUpheader {
+	font-size: 50px;
+	font-family: "MICEGothic Bold";
+	font-weight: 200;
+	color: #87cefa;
+}
+
+.mainsignUpinputsinput {
+	width: 300px;
+	border: 0;
+	margin: 20px 0px;
+	outline: none;
+	transition: ease-in-out 2s;
+	padding-left: 20px;
+}
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+.main__signUp {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	flex-direction: column;
+}
+
+.Logo {
+	width: 200px;
+	position: relative;
+}
+
+.main__signUp__inputs__input {
+	padding-left: 20px;
+	width: 300px;
+
+	border: 1px solid #87cefa;
+	border-radius: 5px;
+	height: 30px;
+	margin: 20px 0px;
+	height: 50px;
+	outline: none;
+	font-size: 17px;
+}
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+	/* WebKit browsers */
+	color: transparent;
+	transition: 0.1s;
+}
+
+input::placeholder {
+	font-size: 15px;
+	color: gray;
+	font-weight: lighter;
+}
+
+.signup,
+.login {
+	font-family: "MICEGothic Bold";
+	width: inherit;
+	width: 5vw;
+	height: 40px;
+	border-radius: 10px;
+	border: none;
+	transition: background 0.2s;
+	border: 1px solid #3baff7;
+	color: gray;
+	cursor: pointer;
+	margin-top: 20px;
+}
+.signup {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	background-color: white;
+}
+/* button:hover {
+	background-color: #3baff7;
+	color: black;
+} */
+.if {
+	margin-top: 50px;
+	width: 500px;
+	display: flex;
+	justify-content: center;
+	font-family: "MICEGothic Bold";
+}
+.a {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+a {
+	text-decoration: none;
+}
+
+input:focus {
+	background-color: #c5e9ff;
+}
+
+.school {
+	width: 230px;
+	height: 50px;
+	border-radius: 5px;
+	border: 1px solid #87cefa;
+}
+.school:focus {
+	background-color: #c5e9ff;
+}
+
+.search {
+	width: 64px;
+	height: 50px;
+	background-color: #c5e9ff;
+	border-radius: 5px;
+	border: 1px solid #87cefa;
+	margin-left: 5px;
+	cursor: pointer;
+}
+.main__signup__inputs__container {
+	display: flex;
+	align-items: center;
+}
+
+.search_window {
+	position: absolute;
+	background-color: white;
+	width: 500px;
+	border: 1px solid #3baff7;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+button.search_window_school {
+	margin-bottom: 10px;
+}
+.search_window_school {
+	width: 350px;
+	height: 60px;
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #87cefa;
+	cursor: pointer;
+	font-family: "MICEGothic Bold";
+}
+
+.search_window_school:hover {
+	background-color: #c5e9ff;
+	transition: background 1ms;
+}
+
+h3.title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 50px;
+	background-color: #c5e9ff;
+	border: 1px solid #3baff7;
+	border-radius: 5px;
+	font-family: "MICEGothic Bold";
+	margin-bottom: 20px;
+}
+
+.exit {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	cursor: pointer;
+	top: 40px;
+	left: 30px;
+}
+
+@media screen and (max-width: 400px) {
+	.main {
+		width: 70vw;
+	}
+	.Logo {
+		width: 25vw;
+	}
+	.main__signUp__inputs__input {
+		width: 50vw;
+		height: 5vh;
+	}
+	.login {
+		width: 14vw;
+	}
+	.if {
+		font-size: 3vw;
+	}
+	.school {
+		width: 36vw;
+	}
+	.search {
+		width: 12vw;
+		height: 5vh;
+	}
+	.signup {
+		width: 15vw;
+	}
+}

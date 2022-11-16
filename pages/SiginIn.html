@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiginUp</title>
+    <link rel="stylesheet" href="../styles/SiginUp2.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="main__signUp__header"> <a class="a">
+                <img class="Logo" src="https://ifh.cc/g/CfrqvK.png" alt="">
+        </h1>
+        <div class="main__signUp">
+            <div class="main__signUp_inputs">
+                <form action="../pages/main.html" id="loginForm" method="get">
+                    <input type="text" class="main__signUp__inputs__input id" placeholder="id" maxlength="12">
+                    <input type="password" class="main__signUp__inputs__input pw" placeholder="password" maxlength="12">
+                </form>
+        </div>
+        <button class="login" type="submit" form="loginForm">로그인</button>
+        <div class="if">schema 계정이 없나요?<a href="../pages/SignUp.html">&nbsp;&nbsp;가입</a></div>
+    </div>
+</body>
+<script src="../scripts/login.js"></script>
+<script>
+    window.addEventListener('online', () => { alert("온라인입니다") });
+    window.addEventListener('offline', () => { alert("오프라인 입니다") });
+</script>
+
+</html>

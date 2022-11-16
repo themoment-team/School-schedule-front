@@ -1,12 +1,162 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-</head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main</title>
+  <script src="https://kit.fontawesome.com/0d3908869d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+  <script src="../scripts/move.js" defer> </script>
+  <script src="../scripts/weather.js" defer></script>
+  <script src="../scripts/img.js" defer></script>
+  <script src="../scripts/modify.js" defer></script>
+  <script src="../scripts/clock.js" defer></script>
+  <script src="../scripts/schoolschedule.js" defer></script>
+  <script src="../scripts/isLoginInMain.js" defer></script>
+
 <body>
-    
+  <nav>
+    <a id="LOGO" href="./main.html">
+      <img class="LOGO" src="https://ifh.cc/g/CfrqvK.png" alt="">
+    </a>
+    <div class="bar"></div>
+    <div id="weather">
+      <div id="bla">
+        <div id="Clear" class="weather__icon hidden__icon">
+          <i class="fa-solid fa-sun fa-sm"></i>
+        </div>
+        <div id="Clouds" class="weather__icon hidden__icon">
+          <i class="fa-solid fa-cloud fa-sm"></i>
+        </div>
+        <div id="Wind" class="weather__icon hidden__icon">
+          <i class="fa-solid fa-wind fa-sm"></i>
+        </div>
+        <div id="Rain" class="weather__icon hidden__icon">
+          <i class="fa-solid fa-umbrella fa-sm"></i>
+        </div>
+        <div id="Snow" class="weather__icon hidden__icon">
+          <i class="fa-solid fa-snowflake fa-sm"></i>
+        </div>
+      </div>
+    </div>
+    <div class="fuck">
+      <div class="Signinbox"><a href="../pages/SiginIn.html" class="shit">로그인</div>
+      <div class="SignupBox"><a href="../pages/SignUp.html" class="bitch">회원가입</a>
+      </div>
+    </div>
+  </nav>
+  <div class="main">
+    <div class="main__user">
+      <div class="main__user__users">
+        <div class="main__user__users__BTN">
+          <i class="fa-solid fa-chevron-left fa-xs"></i>
+        </div>
+        <div class="main__user__users__userBox">
+          <div class="main__user__users__userBox__userIMG">
+            <label id="wantNone" for="file">
+              <div class="btn-upload">File Upload</div>
+            </label>
+            <input name="file" id="file" class="main__user__users__userBox__userIMG__input" type="file">
+            <img class="userIMGfile display" src="">
+          </div>
+          <input disabled id="in1" class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
+          <input disabled id="in2" class="main__user__users__userBox__schoolModify" type="text" placeholder="School">
+          <input disabled id="in3" class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
+          <input disabled id="in4" class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
+          <button id="goModify">수정</button>
+        </div>
+      </div>
+    </div>
+    <div class="main__modify main__user__users__userBox">
+      <div class="main__user__users__userBox__userIMG">
+        <label id="wantNone" for="file">
+          <div class="btn-upload">File Upload</div>
+        </label>
+        <input name="file" id="file" class="main__user__users__userBox__userIMG__input" type="file">
+        <img class="userIMGfile display" src="">
+      </div>
+      <input id="inputN1" class="main__user__users__userBox__nameModify" type="text" placeholder="UserName">
+      <div class="school__search">
+        <input id="inputN2" class="main__user__users__userBox__schoolModify school" type="text" placeholder="School">
+        <button class="search" type="button">검색</button>
+        <div class="search_window">
+          <div class="exit" onclick="goBack()"><i class="fa-solid fa-x fa-xl"></i>
+          </div>
+        </div>
+      </div>
+      <input id="inputN3" class="main__user__users__userBox__schoolModify" type="number" placeholder="Grade">
+      <input id="inputN4" class="main__user__users__userBox__schoolModify" type="number" placeholder="Class">
+      <input id="inputN5" class="main__user__users__userBox__schoolModify" type="text" placeholder="수정을 위해 ID를 입력해주세요">
+      <button id="modifyBTN">Modify</button>
+      <p id="redP"></p>
+      <i id="xMark" class="fa-solid fa-xmark"></i>
+    </div>
+  </div>
+  <div class="main__mid">
+    <div>
+    </div>
+    <h2 id="clock">
+
+    </h2>
+  </div>
+  </div>
+  <div class="main__School__schedule__look">
+    <div class="sort">
+      <div class="subject__title subject">오늘의 시간표</div>
+      <div class="subject" id="0"></div>
+      <div class="subject" id="1"></div>
+      <div class="subject" id="2"></div>
+      <div class="subject" id="3"></div>
+      <div class="subject" id="4"></div>
+      <div class="subject" id="5"></div>
+      <div class="subject" id="6"></div>
+      <div class="button-wrap">
+        <button id="minus" class="Ymd__btn">
+          < </button>
+            <button id="plus" class="Ymd__btn">></button>
+      </div>
+    </div>
+  </div>
 </body>
+<script src="../scripts/weather.js"></script>
+<script>
+  window.addEventListener('online', () => { alert("온라인입니다") });
+  window.addEventListener('offline', () => { alert("오프라인 입니다") });
+  window.onload = () => {
+    let userName;
+    let userSchool;
+    let userGrade;
+    let userClass;
+    const setUserID = localStorage.getItem("setUserID");
+    let url = 'https://server.the-moment-schema.site/memberInfo';
+    fetch(url, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userid: setUserID,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        console.log(setUserID);
+        console.log(json);
+        userName = json.name;
+        userSchool = json.school;
+        userGrade = json.grade;
+        userClass = json.class1;
+        document.querySelector(`#in1`).value = userName;
+        document.querySelector(`#in2`).value = userSchool;
+        document.querySelector(`#in3`).value = userGrade;
+        document.querySelector(`#in4`).value = userClass;
+      })
+  }
+</script>
+
 </html>
